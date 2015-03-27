@@ -1,0 +1,27 @@
+<h1>Users</h1>
+
+<h3>{{users.length}} / {{(users | filter: SearchText).length}}</h3>
+<br/>
+
+<div>
+    <h4>Filtruj: </h4>
+    <h5><input type="text" ng-model="SearchText" placeholder="Zadaj text pre filtráciu"/></h5>
+</div>
+<br/>
+
+<div ng-repeat="user in users | filter: SearchText | orderBy:'profile.email'">
+    <!--<md-text-float label="{{profile.first_name}}" ng-model="profile.first_name" disabled></md-text-float>-->
+    <!--<select ng-init="changeState = states[state.num]" ng-model="changeState" ng-options="state.name for state in states" required></select>-->
+    <div layout="row" layout-sm="column" layout-margin layout-align="left center">
+        <md-button class="md-raised md-primary" ng-click="SaveUser(user)">Uložiť</md-button>
+        <md-button class="md-raised" ng-click="CleanUser(user)">Vyčistiť</md-button>
+        <md-button class="md-raised md-warn" ng-click="DeleteUser(user)">Vymazať</md-button>
+    </div>
+</div>
+
+<div>
+    <input type="text" ng-model="addUser.profile.first_name" placeholder="Zadaj názov stavu"/>
+    <div layout="row" layout-sm="column" layout-margin layout-align="left center">
+        <md-button class="md-raised md-primary" ng-click="AddUser(addUser)">Vytvoriť</md-button>
+    </div>
+</div>

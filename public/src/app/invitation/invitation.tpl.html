@@ -1,0 +1,57 @@
+<style>
+    td
+    {
+        width:150px;
+        padding-bottom: 10px;
+    }
+</style>
+<div ng-show="registerForm">
+<h4>Vložte svoje údaje pre zaregistrovanie sa ako <b ng-model="role">{{role}}</b></h4>
+<form ng-submit="register(user)">
+    <table>
+        <tr>
+            <td><label>Meno</label></td>
+            <td><input type="text" ng-model="firstName" required style="width: 200px;"/></td>
+        </tr>
+        <tr>
+            <td><label>Priezvisko</label></td>
+            <td><input type="text" ng-model="lastName" required style="width: 200px;"/></td>
+        </tr>
+        <tr>
+            <td><label>E-mail</label></td>
+            <td><input type="email" ng-model="email" disabled style="width: 200px;"/></td>
+        </tr>
+        <tr>
+            <td><label>Heslo</label></td>
+            <td><input type="password" ng-model="password" required style="width: 200px;"/></td>
+        </tr>
+        <tr>
+            <td><label>Potvrdenie hesla</label></td>
+            <td><input type="password" ng-model="password2" required style="width: 200px;"/></td>
+        </tr>
+        <tr>
+            <td><label>Dátum narodenia</label></td>
+            <td><input type="date" ng-model="date" required style="width: 200px;"/></td>
+        </tr>
+        <tr>
+            <td><label>Pohlavie</label></td>
+            <td>
+                <label for="input1">Muž</label><input type="radio" id="input1" ng-model="sex" name="radio" required value="Muž" />
+                <label for="input2">Žena</label><input type="radio" id="input2" ng-model="sex" name="radio" value="Žena" />
+            </td>
+        </tr>
+        <tr>
+            <td><input class="btn btn-alert"  type="submit" value="Registrovat sa"></td>
+        </tr>
+    </table>
+</form>
+</div>
+
+<div ng-show="form">
+    <h4>Vitajte <b>{{firstName+" "+lastName}}</b></h4>
+    <form ng-submit="registerOldUser(user)">
+        <input type="checkbox" ng-model="agreeCheckBox" required>&nbsp;
+        <label>Súhlasím s tým, aby mi bola pridaná rola ako {{role}}</label><br>
+            <input class="btn btn-alert"  type="submit" value="Potvrdiť">
+    </form>
+</div>

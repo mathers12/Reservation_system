@@ -1,0 +1,54 @@
+<style>
+    #invitations th
+    {
+        width: 190px;
+        text-align: center;
+        border: 2px solid black;
+    }
+    #invitations td
+    {
+        width: 190px;
+        text-align: center;
+        vertical-align: middle;
+
+        border: 2px solid black;
+    }
+
+    #invitations button
+    {
+        width: 160px;
+        text-align:center;
+        margin-top:5px;
+    }
+    #invitations select
+    {
+
+        width: 160px;
+        text-align:center;
+        margin-top:5px;
+    }
+    input{
+        width: 160px;
+        text-align: center;
+        vertical-align: middle;
+        margin-top:5px;
+    }
+</style>
+<div id="invitations" >
+    <table >
+        <tr>
+            <th><h3>Komu</h3></th>
+            <th><h3>Aká rola</h3></th>
+            <th><h3></h3></th>
+        </tr>
+        <tr>
+            <td><input type="email" ng-model="userEmail" placeholder="Zadajte e-mail" required></td>
+            <td>
+                <select class="width" ng-model="userRole"
+                        ng-options="role as role.label for role in roles">
+                </select>
+            </td>
+            <td><h3><button ng-click="sendInvitation()">Odoslať</button></h3></td>
+        </tr>
+    </table>
+</div>

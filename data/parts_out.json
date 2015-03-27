@@ -1,0 +1,66 @@
+[
+	{
+		"_id": "548afa3e436b8c341c8d1eee",
+		"room_id": "",
+		"name": "Časť pod pódiom",
+		"positioning": "top",
+		"order": 0,
+		"tables": []
+	},
+	{
+		"_id": "548afa3e436b8c341c8d1ef2",
+		"room_id": "",
+		"name": "Vrchná Časť",
+		"positioning": "top",
+		"order": 0,
+		"tables": []
+	},
+	{
+		"_id": "548afa3e436b8c341c8d1eef",
+		"room_id": "",
+		"name": "Pozdĺž sklenenej steny",
+		"positioning": "left",
+		"order": 1,
+		"tables": []
+	},
+	{
+		"_id": "548afa3e436b8c341c8d1ef3",
+		"room_id": "",
+		"name": "Pozdĺž sklenenej steny",
+		"positioning": "left",
+		"order": 1,
+		"tables": []
+	},
+	{
+		"_id": "548afa3e436b8c341c8d1ef0",
+		"room_id": "",
+		"name": "Na pravo od pódia",
+		"positioning": "right",
+		"order": 2,
+		"tables": []
+	},
+	{
+		"_id": "548afa3e436b8c341c8d1ef4",
+		"room_id": "",
+		"name": "Na pravo od vrchnej časti",
+		"positioning": "right",
+		"order": 2,
+		"tables": []
+	},
+	{
+		"_id": "548afa3e436b8c341c8d1ef1",
+		"room_id": "",
+		"name": "Stena oproti pódiu",
+		"positioning": "bottom",
+		"order": 3,
+		"tables": []
+	},
+	{
+		"_id": "548afa3e436b8c341c8d1ef5",
+		"room_id": "",
+		"name": "Stena oproti vrchnej časti",
+		"positioning": "bottom",
+		"order": 3,
+		"tables": []
+	}
+]

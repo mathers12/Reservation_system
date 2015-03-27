@@ -1,0 +1,21 @@
+[{
+  "user": "user_profile_id",
+  "name": "profile.user_firstname + profile.user_lastname",
+  "order": 0,
+  "state": "state_id"
+}, {
+  "user": "user_profile_id",
+  "name": "profile.user_firstname + profile.user_lastname",
+  "order": 1,
+  "state": "state_id"
+}, {
+  "user": "user_profile_id",
+  "name": "profile.user_firstname + profile.user_lastname",
+  "order": 2,
+  "state": "state_id"
+}, {
+  "user": "user_profile_id",
+  "name": "profile.user_firstname + profile.user_lastname",
+  "order": 3,
+  "state": "state_id"
+}]

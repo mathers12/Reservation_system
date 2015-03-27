@@ -1,0 +1,39 @@
+
+<style>
+    td
+    {
+        padding-bottom: 10px;
+    }
+
+</style>
+<h3>Prihlásenie do systému T-res</h3>
+<form ng-submit="Login()">
+    <!-- this input field synchronizes directly to the name attribute in Firebase! -->
+    <table>
+        <tr>
+            <td>
+                <label>E-mail:</label>
+            </td>
+            <td>
+                <input type="text" name="email" ng-model="user.email" required/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Heslo:</label>
+            </td>
+            <td>
+                <input type="password" name="password" ng-model="user.password" required/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input class="btn btn-alert" type="submit" value="Prihlásiť sa">
+            </td>
+        </tr>
+    </table>
+    <p>Nie ste este zaregistrovany?<a href="/register"> Registrovať sa!</a> </p>
+    <p><a href="/forgotPassword" >Zabudli ste svoje heslo?</a></p>
+
+</form>
+

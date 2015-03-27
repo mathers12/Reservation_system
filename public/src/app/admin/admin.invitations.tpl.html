@@ -1,0 +1,57 @@
+<style>
+    #invitations th
+    {
+        width: 180px;
+        text-align: center;
+        border: 2px solid black;
+    }
+    #invitations td
+    {
+        width: 180px;
+        text-align: center;
+        border: 2px solid black;
+    }
+
+    #invitations button
+    {
+        width: 130px;
+    }
+    #buttonTop
+    {
+        margin-bottom: 5px;
+    }
+</style>
+<div id="invitations" ng-if="createdByConfirmations.length">
+<table >
+    <tr>
+        <th><h3>Komu</h3></th>
+        <th><h3>Aká rola</h3></th>
+        <th><h3>Stav</h3></th>
+        <th><h3></h3></th>
+    </tr>
+    <tr ng-repeat="confirmation in createdByConfirmations">
+        <td><h3>{{confirmation.addressedTo.email}}</h3></td>
+        <td><h3>{{confirmation.role}}</h3></td>
+        <td><h3>{{confirmation.state}}</h3></td>
+            <td ng-if="confirmation.state === 'V stave prijatia'">
+                <h3>
+                    <button id="buttonTop" ng-click="resend(confirmation)">Znova poslať</button>
+                    <button ng-click="delete(confirmation)">Zrušiť</button>
+                </h3>
+            </td>
+        <td ng-if="confirmation.state === 'Prijaté'">
+            <h3>
+                Prijaté klientom
+            </h3>
+        </td>
+        <td ng-if="confirmation.state === 'Zamietnuté'">
+            <h3>
+                Zamietnuté klientom
+            </h3>
+        </td>
+    </tr>
+</table>
+</div>
+<div ng-if="!createdByConfirmations.length">
+    <h3>Aktuálne nemáte žiadne poslané pozvánky</h3>
+</div>

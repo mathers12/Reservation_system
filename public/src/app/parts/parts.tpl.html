@@ -1,0 +1,52 @@
+<div layout="row" layout-sm="column" layout-align="start center">
+    <md-text-float label="Zadaj text pre filtráciu" ng-model="SearchText"></md-text-float>
+    <h2>{{parts.length}} / {{(parts | filter: SearchText).length}}</h2>
+</div>
+<br/>
+<md-content>
+    <md-card layout-padding>
+        <md-toolbar class="md-theme-light">
+            <h1 class="md-toolbar-tools">
+                <span>List častí miestnosti v Databáze</span>
+            </h1>
+        </md-toolbar>
+        <md-content>
+            <md-list>
+                <md-item ng-repeat="part in parts | filter: SearchText | orderBy:'part.order'">
+                    <md-item-content >
+                        <div class="md-tile-content" layout="row" class="md-padding">
+                            <md-text-float label="Poradie časti v miestnosti" ng-model="part.order" disabled></md-text-float>
+                            <md-text-float label="Názov časti v miestnosti" ng-model="part.name" disabled></md-text-float>
+                            <md-text-float label="Pozícia časti v miestnosti slovom" ng-model="part.positioning" disabled></md-text-float>
+                            <span> Miestnosť: </span>
+                            <select ng-init="changePart.room = rooms[part.room.order]" ng-model="changePart.room" ng-options="room.name for room in rooms" required></select>
+                            <div layout="row" layout-sm="column" layout-margin layout-align="left center">
+                                <md-button class="md-raised md-primary" ng-click="SavePart(part, changePart)"> Uložiť </md-button>
+                                <md-button class="md-raised" ng-click="CleanPart(part)"> Vyčistiť </md-button>
+                                <md-button class="md-raised md-warn" ng-click="DeletePart(part)"> Vymazať </md-button>
+                            </div>
+                        </div>
+                    </md-item-content>
+                    <!--<md-divider ng-if="!$last"></md-divider>-->
+                </md-item>
+            </md-list>
+        </md-content>
+    </md-card>
+</md-content>
+
+<md-content>
+    <md-card layout-padding>
+        <md-toolbar class="md-theme-light">
+            <h1 class="md-toolbar-tools">
+                <span>Uložiť novú časť miestnosti do Databázy</span>
+            </h1>
+        </md-toolbar>
+        <div class="md-tile-content" layout="row" class="md-padding">
+            <md-text-float label="Názov časti v miestnosti" ng-model="newPart.name" disabled></md-text-float>
+            <md-text-float label="Pozícia časti v miestnosti slovom" ng-model="newPart.positioning" disabled></md-text-float>
+            <span> Miestnosť: </span>
+            <select ng-model="newPart.room" ng-options="room.name for room in rooms" required></select>
+            <md-button class="md-raised md-primary" ng-click="AddPart(newPart)">Vytvoriť</md-button>
+        </div>
+    </md-card>
+</md-content>

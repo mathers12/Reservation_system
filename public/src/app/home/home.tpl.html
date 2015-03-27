@@ -1,0 +1,181 @@
+<div layout="row" layout-margin layout-fill layout-padding ng-repeat="room in rooms" layout-align="{{room.positioning}}"><!--Rooms-->
+
+    <div ng-repeat="part in room.parts"  layout="column" layout-align="{{part.positioning}}" flex><!--Parts-->
+
+        <div  ng-if="part.tables.length" ng-repeat="table in part.tables"   class="table"  ><!--Tables-->
+            <div ng-repeat="all_table in tables" ng-if="table == all_table._id" class="tableWrapper pull-left ">
+
+                <!-----------------------------------------------------------Vrchna cast stola------------------------------------------>
+                <div class="seats seatsTop"><!--Seats-->
+                    <span ng-show="all_table.seats.length" ng-repeat="seat in all_table.seats"  ng-if="(seat.order-1) < (all_table.seats.length/2)"><!--Z daneho stola filtrujeme sedadla-->
+                        <span ng-repeat="state in states" ng-if="state._id == seat.state"><!--Filtrujeme stav sedadla-->
+
+                            <!--Ak nie je uzivatel prihlaseny tak odokry udaje-->
+                            <span ng-if="!isLogged">
+                                <!--Ak je rezervovany alebo zaplateny tak ukaz OBSADENY-->
+                                <md-button aria-label="" ng-if="state.color == 'green' " class="md-fab md-primary seat md-warn seat" >
+                                    <span>
+                                        <img src='/assets/svg/design/ic_person_18px.svg'>
+                                    </span>
+                                    <md-tooltip>
+                                        {{(seat.below_18)?"Osoba má viac ako 18 rokov!":"Osoba má menej ako 18 rokov"}}
+                                    </md-tooltip>
+                                </md-button>
+                                <md-button aria-label="" ng-if="state.color == 'yellow'" class="md-fab md-primary seat md-warn seat" >
+                                <span>
+                                    <img src='/assets/svg/design/ic_person_18px.svg'>
+                                </span>
+                                    <md-tooltip>
+                                        {{(seat.below_18)?"Osoba má viac ako 18 rokov!":"Osoba má menej ako 18 rokov"}}
+                                    </md-tooltip>
+                                </md-button>
+                            </span>
+
+                          <!--Ak je uzivatel prihlaseny tak hladaj jeho udaje-->
+                            <span ng-if="isLogged" ng-repeat="client in clients" >
+
+                                <!--Vyhladavanie sedadiel z prihlaseneho e-mailu-->
+                                <span ng-if="client.email == clientEmail" ng-repeat="profile in client.profile"><!--Ak uz najdeme klienta, tak hladame jeho ludi-->
+
+                                    <span ng-if="profile._id == seat.profile"><!--Ak sme nasli cloveka komu patri sedadlo s danym klientom-->
+                                        <!--Ak je rezervovany-->
+                                        <md-button aria-label=""  ng-if="state.color == 'yellow'" ng-click="showReservation($event,seat)" class="md-fab md-primary seat" md-theme="{{state.color}}">
+                                            <span><img src='/assets/svg/design/ic_person_18px.svg'></span>
+                                        </md-button>
+                                        <!--Ak je Zaplateny-->
+                                        <md-button aria-label="" ng-if="state.color == 'green'" ng-click="showReservation($event,seat)" class="md-fab md-primary seat" md-theme="{{state.color}}">
+                                            <span><img src='/assets/svg/ic_check_18px.svg'></span>
+                                            <md-tooltip>
+                                                Vaše sedadlo
+                                            </md-tooltip>
+                                        </md-button>
+                                    </span>
+                                </span>
+
+                                <!--Vyhladavanie sedadiel z ostatnych e-mailov-->
+                                <span ng-if="client.email != clientEmail" ng-repeat="profile in client.profile"><!--Ak uz najdeme klienta, tak hladame jeho ludi-->
+
+                                    <span ng-if="profile._id == seat.profile"><!--Ak sme nasli cloveka komu patri sedadlo s danym klientom-->
+                                        <!--Ak je rezervovany dame obsadeny-->
+                                        <md-button aria-label=""  ng-if="state.color == 'yellow'" class="md-fab md-primary seat md-warn seat" >
+                                            <span>
+                                                <img src='/assets/svg/design/ic_person_18px.svg'>
+                                            </span>
+                                            <md-tooltip>
+                                                {{(seat.below_18)?"Osoba má viac ako 18 rokov!":"Osoba má menej ako 18 rokov"}}
+                                            </md-tooltip>
+                                        </md-button>
+                                        <!--Ak je Zaplateny dame obsadeny-->
+                                        <md-button aria-label="" ng-if="state.color == 'green'" class="md-fab md-primary seat md-warn seat" >
+                                            <span>
+                                                <img src='/assets/svg/design/ic_person_18px.svg'>
+                                            </span>
+                                            <md-tooltip>
+                                                {{(seat.below_18)?"Osoba má viac ako 18 rokov!":"Osoba má menej ako 18 rokov"}}
+                                            </md-tooltip>
+                                        </md-button>
+
+                                    </span>
+                                </span>
+                            </span>
+
+                            <!--Ak je volny, ponechaj VOLNY-->
+
+                            <md-button aria-label="" ng-if="state.color == 'grey'" ng-click="showReservation($event,seat)" class="md-fab md-primary seat" md-theme="{{state.color}}">
+
+
+                                {{seat.order}}
+                            </md-button>
+
+                        </span>
+                    </span>
+                </div>
+                <md-card md-whiteframe layout layout-align="center center"   class="tableCenter md-primary clearfix">Stôl {{all_table.order}} </md-card>
+
+                <!--------------------------------Spodna cast stola------------------------------------------------------------->
+                <div class="seats seatsBottom clearfix">
+
+                    <span ng-show="all_table.seats.length" ng-repeat="seat in all_table.seats" ng-if="(seat.order-1) >= (all_table.seats.length/2)">
+                        <span ng-repeat="state in states" ng-if="state._id == seat.state">
+
+                            <!--Ak nie je uzivatel prihlaseny tak odokry udaje-->
+                            <span ng-if="!isLogged">
+                            <!--Ak je rezervovany alebo zaplateny tak ukaz OBSADENY-->
+                                <md-button aria-label="" ng-if="state.color == 'green' " class="md-fab md-primary seat md-warn seat" >
+                                    <span>
+                                        <img src='/assets/svg/design/ic_person_18px.svg'>
+                                    </span>
+                                    <md-tooltip>
+                                        {{(seat.below_18)?"Osoba má viac ako 18 rokov!":"Osoba má menej ako 18 rokov"}}
+                                    </md-tooltip>
+                                </md-button>
+                                <md-button aria-label="" ng-if="state.color == 'yellow'" class="md-fab md-primary seat md-warn seat" >
+                                <span>
+                                    <img src='/assets/svg/design/ic_person_18px.svg'>
+                                </span>
+                                    <md-tooltip>
+                                        {{(seat.below_18)?"Osoba má viac ako 18 rokov!":"Osoba má menej ako 18 rokov"}}
+                                    </md-tooltip>
+                                </md-button>
+                            </span>
+
+                          <!--Ak je uzivatel prihlaseny tak hladaj jeho udaje-->
+                            <span ng-if="isLogged" ng-repeat="client in clients" >
+
+                                <!--Vyhladavanie sedadiel z prihlaseneho e-mailu-->
+                                <span ng-if="client.email == clientEmail" ng-repeat="profile in client.profile"><!--Ak uz najdeme klienta, tak hladame jeho ludi-->
+
+                                    <span ng-if="profile._id == seat.profile"><!--Ak sme nasli cloveka komu patri sedadlo s danym klientom-->
+                                        <!--Ak je rezervovany-->
+                                        <md-button aria-label=""  ng-if="state.color == 'yellow'" ng-click="showReservation($event,seat)" class="md-fab md-primary seat" md-theme="{{state.color}}">
+                                            <span><img src='/assets/svg/design/ic_person_18px.svg'></span>
+                                        </md-button>
+                                        <!--Ak je Zaplateny-->
+                                        <md-button aria-label="" ng-if="state.color == 'green'" ng-click="showReservation($event,seat)" class="md-fab md-primary seat" md-theme="{{state.color}}">
+                                            <span><img src='/assets/svg/ic_check_18px.svg'></span>
+                                            <md-tooltip>
+                                                Vaše sedadlo
+                                            </md-tooltip>
+                                        </md-button>
+                                    </span>
+                                </span>
+
+                                <!--Vyhladavanie sedadiel z ostatnych e-mailov-->
+                                <span ng-if="client.email != clientEmail" ng-repeat="profile in client.profile"><!--Ak uz najdeme klienta, tak hladame jeho ludi-->
+
+                                    <span ng-if="profile._id == seat.profile"><!--Ak sme nasli cloveka komu patri sedadlo s danym klientom-->
+                                        <!--Ak je rezervovany dame obsadeny-->
+                                        <md-button aria-label=""  ng-if="state.color == 'yellow'" class="md-fab md-primary seat md-warn seat" >
+                                            <span>
+                                                <img src='/assets/svg/design/ic_person_18px.svg'>
+                                            </span>
+                                            <md-tooltip>
+                                                {{(seat.below_18)?"Osoba má viac ako 18 rokov!":"Osoba má menej ako 18 rokov"}}
+                                            </md-tooltip>
+                                        </md-button>
+                                        <!--Ak je Zaplateny dame obsadeny-->
+                                        <md-button aria-label="" ng-if="state.color == 'green'" class="md-fab md-primary seat md-warn seat" >
+                                            <span>
+                                                <img src='/assets/svg/design/ic_person_18px.svg'>
+                                            </span>
+                                            <md-tooltip>
+                                                {{(seat.below_18)?"Osoba má viac ako 18 rokov!":"Osoba má menej ako 18 rokov"}}
+                                            </md-tooltip>
+                                        </md-button>
+                                    </span>
+                                </span>
+                            </span>
+
+                            <!--Ak je volny, ponechaj VOLNY-->
+                            <md-button aria-label="" ng-if="state.color == 'grey'" ng-click="showReservation($event,seat)" class="md-fab md-primary seat" md-theme="{{state.color}}">
+                                {{seat.order}}
+                            </md-button>
+
+                        </span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

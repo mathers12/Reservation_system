@@ -1,0 +1,52 @@
+<style>
+    button:hover,input[type="submit"]:hover
+    {
+        background-color:#4682B4;
+
+    }
+    td
+    {
+        padding-bottom: 10px;
+    }
+    .width
+    {
+        width: 200px;
+    }
+    button
+    {
+        width: 200px;
+    }
+
+    #left
+    {
+        float:left;
+    }
+    #center
+    {
+        float:left;
+        margin-left: 200px;
+    }
+</style>
+<h1 ng-repeat="client in clients">Správa účtu používateľa <b>{{client.firstName}}</b> <b>{{client.lastName}}</b></h1><br>
+<div id="left">
+    <table>
+        <tr>
+            <td>
+                <button class="btn btn-alert" onclick="location.href='/home'">Domovská stránka</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button class="btn btn-alert" ui-sref="account.options">Zmeniť nastavenia účtu</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button class="btn btn-alert" ui-sref="account.invitations" >Pozvánky</button>
+            </td>
+        </tr>
+    </table>
+</div>
+<div id="center" ui-view>
+
+</div>

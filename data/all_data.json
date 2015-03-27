@@ -1,0 +1,792 @@
+[{
+  "parts": [
+    {
+      "tables": [
+        {
+          "seats": [
+            {
+              "user": "user_profile_id",
+              "name": "profile.user_firstname + profile.user_lastname",
+              "order": 0,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 1,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 2,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 3,
+              "state": "state_id"
+            }
+          ],
+          "order": 0,
+          "state": "state_id"
+        }, {
+          "seats": [
+            {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 0,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 1,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 2,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 3,
+              "state": "state_id"
+            }
+          ],
+          "order": 1,
+          "state": "state_id"
+        }, {
+          "seats": [
+            {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 0,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 1,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 2,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 3,
+              "state": "state_id"
+            }
+          ],
+          "order": 2,
+          "state": "state_id"
+        }, {
+          "seats": [
+            {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 0,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 1,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 2,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 3,
+              "state": "state_id"
+            }
+          ],
+          "order": 3,
+          "state": "state_id"
+        }
+      ],
+      "name": "left",
+      "order": 1,
+      "state": "1_id_state"
+    }, {
+      "tables": [
+        {
+          "seats": [
+            {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 0,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 1,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 2,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 3,
+              "state": "state_id"
+            }
+          ],
+          "order": 0,
+          "state": "state_id"
+        }, {
+          "seats": [
+            {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 0,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 1,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 2,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 3,
+              "state": "state_id"
+            }
+          ],
+          "order": 1,
+          "state": "state_id"
+        }, {
+          "seats": [
+            {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 0,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 1,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 2,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 3,
+              "state": "state_id"
+            }
+          ],
+          "order": 2,
+          "state": "state_id"
+        }, {
+          "seats": [
+            {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 0,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 1,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 2,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 3,
+              "state": "state_id"
+            }
+          ],
+          "order": 3,
+          "state": "state_id"
+        }
+      ],
+      "name": "right",
+      "order": 2,
+      "state": "1_id_state"
+    }, {
+      "tables": [
+        {
+          "seats": [
+            {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 0,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 1,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 2,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 3,
+              "state": "state_id"
+            }
+          ],
+          "order": 0,
+          "state": "state_id"
+        }, {
+          "seats": [
+            {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 0,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 1,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 2,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 3,
+              "state": "state_id"
+            }
+          ],
+          "order": 1,
+          "state": "state_id"
+        }, {
+          "seats": [
+            {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 0,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 1,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 2,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 3,
+              "state": "state_id"
+            }
+          ],
+          "order": 2,
+          "state": "state_id"
+        }, {
+          "seats": [
+            {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 0,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 1,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 2,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 3,
+              "state": "state_id"
+            }
+          ],
+          "order": 3,
+          "state": "state_id"
+        }
+      ],
+      "name": "bottom",
+      "order": 3,
+      "state": "1_id_state"
+    }
+  ],
+  "name": "Hlavna plesova sala",
+  "order": 0,
+  "state": "state_id"
+}, {
+  "parts": [
+    {
+      "tables": [
+        {
+          "seats": [
+            {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 0,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 1,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 2,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 3,
+              "state": "state_id"
+            }
+          ],
+          "order": 0,
+          "state": "state_id"
+        }, {
+          "seats": [
+            {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 0,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 1,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 2,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 3,
+              "state": "state_id"
+            }
+          ],
+          "order": 1,
+          "state": "state_id"
+        }, {
+          "seats": [
+            {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 0,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 1,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 2,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 3,
+              "state": "state_id"
+            }
+          ],
+          "order": 2,
+          "state": "state_id"
+        }, {
+          "seats": [
+            {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 0,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 1,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 2,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 3,
+              "state": "state_id"
+            }
+          ],
+          "order": 3,
+          "state": "state_id"
+        }
+      ],
+      "name": "top",
+      "order": 0,
+      "state": "1_id_state"
+    }, {
+      "tables": [
+        {
+          "seats": [
+            {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 0,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 1,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 2,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 3,
+              "state": "state_id"
+            }
+          ],
+          "order": 0,
+          "state": "state_id"
+        }, {
+          "seats": [
+            {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 0,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 1,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 2,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 3,
+              "state": "state_id"
+            }
+          ],
+          "order": 1,
+          "state": "state_id"
+        }, {
+          "seats": [
+            {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 0,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 1,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 2,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 3,
+              "state": "state_id"
+            }
+          ],
+          "order": 2,
+          "state": "state_id"
+        }, {
+          "seats": [
+            {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 0,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 1,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 2,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 3,
+              "state": "state_id"
+            }
+          ],
+          "order": 3,
+          "state": "state_id"
+        }
+      ],
+      "name": "left",
+      "order": 1,
+      "state": "1_id_state"
+    }, {
+      "tables": [
+        {
+          "seats": [
+            {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 0,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 1,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 2,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 3,
+              "state": "state_id"
+            }
+          ],
+          "order": 0,
+          "state": "state_id"
+        }, {
+          "seats": [
+            {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 0,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 1,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 2,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 3,
+              "state": "state_id"
+            }
+          ],
+          "order": 1,
+          "state": "state_id"
+        }, {
+          "seats": [
+            {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 0,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 1,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 2,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 3,
+              "state": "state_id"
+            }
+          ],
+          "order": 2,
+          "state": "state_id"
+        }, {
+          "seats": [
+            {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 0,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 1,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 2,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 3,
+              "state": "state_id"
+            }
+          ],
+          "order": 3,
+          "state": "state_id"
+        }
+      ],
+      "name": "right",
+      "order": 2,
+      "state": "1_id_state"
+    }, {
+      "tables": [
+        {
+          "seats": [
+            {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 0,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 1,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 2,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 3,
+              "state": "state_id"
+            }
+          ],
+          "order": 0,
+          "state": "state_id"
+        }, {
+          "seats": [
+            {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 0,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 1,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 2,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 3,
+              "state": "state_id"
+            }
+          ],
+          "order": 1,
+          "state": "state_id"
+        }, {
+          "seats": [
+            {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 0,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 1,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 2,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 3,
+              "state": "state_id"
+            }
+          ],
+          "order": 2,
+          "state": "state_id"
+        }, {
+          "seats": [
+            {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 0,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 1,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 2,
+              "state": "state_id"
+            }, {
+              "user": "user_id",
+              "name": "user_firstname + user_lastname",
+              "order": 3,
+              "state": "state_id"
+            }
+          ],
+          "order": 3,
+          "state": "state_id"
+        }
+      ],
+      "name": "bottom",
+      "order": 3,
+      "state": "1_id_state"
+    }
+  ],
+  "name": "Vedlajsia stolova miestnost",
+  "order": 1,
+  "state": "state_id"
+}]

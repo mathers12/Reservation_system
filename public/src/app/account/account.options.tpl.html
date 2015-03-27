@@ -1,0 +1,54 @@
+<style>
+    #options th
+    {
+        width: 190px;
+        text-align: center;
+        border: 2px solid black;
+    }
+    #options td
+    {
+        width: 190px;
+        text-align: center;
+        vertical-align: middle;
+
+        border: 2px solid black;
+    }
+
+    #options button
+    {
+        width: 160px;
+        text-align:center;
+        margin-top:5px;
+    }
+    input{
+        width: 160px;
+        text-align: center;
+        vertical-align: middle;
+        margin-top:5px;
+    }
+
+</style>
+<div id="options" >
+    <table ng-repeat="client in clients">
+        <tr>
+            <td>MENO</td>
+            <td><input type="text" ng-model="first_name" placeholder="{{client.firstName}}"></td>
+            <td><button ng-click="editName(client._id,first_name,'firstName')">Upraviť</button></td>
+        </tr>
+        <tr>
+            <td>PRIEZVISKO</td>
+            <td><input type="text" ng-model="last_name" placeholder="{{client.lastName}}"></td>
+            <td><button ng-click="editName(client._id,last_name,'lastName')">Upraviť</button></td>
+        </tr>
+        <tr>
+            <td ><input ng-model="oldPassword" type="password" placeholder="Staré heslo"></td>
+            <td ><input ng-model="password" type="password" placeholder="Nové heslo"></td>
+            <td ><input ng-model="password2" type="password" placeholder="Nové heslo ešte raz"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button ng-click="editPassword(oldPassword,password,password2)">Potvrdiť heslo</button></td>
+            <td></td>
+        </tr>
+    </table>
+</div>

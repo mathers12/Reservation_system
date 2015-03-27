@@ -1,0 +1,45 @@
+<div layout="row" layout-sm="column" layout-align="start center">
+    <md-text-float label="Zadaj text pre filtráciu" ng-model="SearchText"></md-text-float>
+    <h2>{{rooms.length}} / {{(rooms | filter: SearchText).length}}</h2>
+</div>
+<md-content>
+    <md-card layout-padding>
+        <md-toolbar class="md-theme-light">
+            <h1 class="md-toolbar-tools">
+                <span>Zoznam miestnosti v Databáze</span>
+            </h1>
+        </md-toolbar>
+        <md-content>
+            <md-list>
+                <md-item ng-repeat="room in rooms | filter: SearchText | orderBy:'room.order'">
+                    <md-item-content>
+                        <div class="md-tile-content md-padding" layout="row" layout-sm="column" layout-margin layout-align="left center">
+                            <md-text-float label="Poradie miestnosti" ng-model="room.order" disabled></md-text-float>
+                            <md-text-float label="Názov miestnosti" ng-model="room.name"></md-text-float>
+                            <md-text-float label="Pozícia miestnosti" ng-model="room.positioning"></md-text-float>
+                            <div layout="row" layout-sm="column" layout-margin layout-align="left center">
+                                <md-button class="md-raised md-primary" ng-click="SaveRoom(room)">Uložiť</md-button>
+                                <md-button class="md-raised" ng-click="CleanRoom(room)">Vyčistiť</md-button>
+                                <md-button class="md-raised md-warn" ng-click="DeleteRoom(room)">Vymazať</md-button>
+                            </div>
+                        </div>
+                    </md-item-content>
+                </md-item>
+            </md-list>
+        </md-content>
+    </md-card>
+</md-content>
+<md-content>
+    <md-card layout-padding>
+        <md-toolbar class="md-theme-light">
+            <h1 class="md-toolbar-tools">
+                <span>Uložiť novú miestnosť do Databázy</span>
+            </h1>
+        </md-toolbar>
+        <div layout="row" layout-sm="column" layout-margin layout-align="left center">
+            <md-text-float label="Názov miestnosti" ng-model="newRoom.name"></md-text-float>
+            <md-text-float label="Pozícia miestnosti" ng-model="newRoom.positioning"></md-text-float>
+            <md-button class="md-raised md-primary" ng-click="AddRoom(newRoom)" style="max-height: 40px">Vytvoriť</md-button>
+        </div>
+    </md-card>
+</md-content>

@@ -1,0 +1,41 @@
+<div layout="row" layout-sm="column" layout-align="start center">
+    <md-text-float label="Filtruj podľa textu..." ng-model="SearchText"></md-text-float>
+    <h2>{{clients.length}} / {{(clients | filter: SearchText).length}}</h2>
+</div>
+<md-content>
+    <md-card layout-padding>
+        <md-toolbar class="md-theme-light">
+            <h1 class="md-toolbar-tools">
+                <span>Zoznam klientov uložených v databáze</span>
+            </h1>
+        </md-toolbar>
+        <md-content>
+            <md-list>
+                <md-item ng-repeat="client in clients | filter: SearchText | orderBy:'client.lastName'">
+                    <md-item-content>
+                        <div layout="column">
+                            <div class="md-tile-content" layout="row" class="md-padding">
+                                <md-text-float label="Priezvisko" ng-model="client.lastName" disabled></md-text-float>
+                                <md-text-float label="Meno" ng-model="client.firstName" disabled></md-text-float>
+                                <md-text-float label="E-mail" ng-model="client.email" disabled></md-text-float>
+                                <md-text-float label="Dátum narodenia" ng-model="client.date_of_birth" disabled></md-text-float>
+                            </div>
+                            <div class="md-tile-content" layout="row" class="md-padding">
+                                <md-text-float label="Pohlavie"  ng-model="client.sex" disabled></md-text-float>
+                                <md-text-float label="Rola" ng-model="client.roles" disabled></md-text-float>
+                                <div layout="row" layout-align="start center">
+                                    <span layout="center"> Verifikovaný e-mail </span>
+                                    <md-checkbox aria-label="{{client.verifiedEmail}}" ng-model="client.verifiedEmail"></md-checkbox>
+                                </div>
+                                <div layout="row" layout-sm="column" layout-margin layout-align="left center">
+                                    <md-button class="md-raised md-warn" ng-click="DeleteClient(client)"> Vymazať </md-button>
+                                </div>
+                            </div>
+                        </div>
+                    </md-item-content>
+                    <!--<md-divider ng-if="!$last"></md-divider>-->
+                </md-item>
+            </md-list>
+        </md-content>
+    </md-card>
+</md-content>

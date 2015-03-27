@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app="T-Res-App" ng-controller="AppController">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title ng-bind="pageTitle"></title>
+
+    <!-- font awesome from BootstrapCDN -->
+   <!-- <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">-->
+
+    <!-- compiled CSS --><% styles.forEach( function ( file ) { %>
+    <link rel="stylesheet" type="text/css" href="<%= file %>" /><% }); %>
+    <link rel="stylesheet" href="assets/css/cyan-theme.css">
+    <link rel="stylesheet" href="assets/css/brown-theme.css">
+    <link rel="stylesheet" href="assets/css/yellow-theme.css">
+    <link rel="stylesheet" href="assets/css/grey-theme.css">
+    <link rel="stylesheet" href="assets/css/green-theme.css">
+    <link rel="stylesheet" href="assets/css/angular-material.css">
+
+    <!-- compiled JavaScript --><% scripts.forEach( function ( file ) { %>
+    <script type="text/javascript" src="<%= file %>"></script><% }); %>
+
+</head>
+<body>
+    <header>
+        <div  class="container" layout="row" layout-align="end center">
+            <div flex><h1><a  href="/home">T-Res</a></h1></div>
+            <ul  class="list-unstyled nav nav-pills">
+                <li  ui-sref-active="active">
+                    <a  ng-show="accountButton" ui-sref="account" >Môj účet</a>
+                </li>
+                <li  ui-sref-active="active">
+                    <a  ng-show="adminButton" ui-sref="admin" >Administrácia</a>
+                </li>
+                <li  ui-sref-active="active">
+                    <a  ng-show="managerButton" ui-sref="manager" >Manažment</a>
+                </li>
+                <li  ui-sref-active="active">
+                    <a ui-sref="register">Registrácia</a>
+                </li>
+                <li ui-sref-active="active">
+                    <a ui-sref="login" ng-hide="logButton">Prihlásenie</a>
+                    <a style="cursor: pointer; cursor: hand;" ng-click="logout()" ng-show="logButton">Odhlásiť sa</a>
+
+                </li>
+            </ul>
+        </div>
+    </header>
+    <!--<md-toolbar md-scroll-shrink>-->
+        <!--<div class="md-toolbar-tools">-->
+            <!--<md-tabs class="md-accent" md-selected="-1">-->
+                <!--<md-tab id="tab{{tab.order}}" ng-repeat="tab in tabs" md-on-select="announceSelected(tab)" md-on-deselect="announceDeselected(tab)" label="{{tab.title}}"-->
+                        <!--ui-sref-active="active" aria-controls="tab$index-content" ui-sref="{{tab.route}}">-->
+                <!--</md-tab>-->
+            <!--</md-tabs>-->
+        <!--</div>-->
+    <!--</md-toolbar>-->
+    <div class="container" ui-view="main"></div>
+
+    <footer class="container">
+        <br/>
+        (c) <%= date %> <%= author %>
+    </footer>
+</body>
+</html>

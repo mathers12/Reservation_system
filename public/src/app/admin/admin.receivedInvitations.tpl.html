@@ -1,0 +1,88 @@
+<style>
+    #invitations th
+    {
+        width: 180px;
+        text-align: center;
+        border: 2px solid black;
+    }
+    #invitations td
+    {
+        width: 180px;
+        text-align: center;
+        border: 2px solid black;
+    }
+
+    #invitations button
+    {
+        width: 130px;
+    }
+    #buttonTop
+    {
+        margin-bottom: 5px;
+    }
+</style>
+<div id="invitations" ng-if="addressedToConfirmations.length" >
+    <span ng-if="receivedInvitations">
+    <table >
+        <tr>
+            <th><h3>Od koho</h3></th>
+            <th><h3>Aká rola</h3></th>
+            <th><h3>Stav</h3></th>
+            <th><h3>Vaše rozhodnutie</h3></th>
+        </tr>
+        <tr ng-repeat="confirmation in addressedToConfirmations">
+            <td><h3>{{confirmation.createdBy.email}}</h3></td>
+            <td><h3>{{confirmation.role}}</h3></td>
+            <td><h3>{{confirmation.state}}</h3></td>
+            <td ng-if="confirmation.state === 'V stave prijatia'">
+                <h3>
+                    <button id="buttonTop" ng-click="accept(confirmation)">Prijať</button>
+                    <button ng-click="reject(confirmation)">Zamietnúť</button>
+                </h3>
+            </td>
+            <td ng-if="confirmation.state === 'Prijaté'">
+                <h3>
+                    <button disabled>Prijaté</button>
+                </h3>
+            </td>
+            <td ng-if="confirmation.state === 'Zamietnuté'">
+                <h3>
+                    <button disabled>Zamietnuté</button>
+                </h3>
+            </td>
+        </tr>
+    </table>
+        </span>
+</div>
+<div ng-if="!addressedToConfirmations.length">
+    <h3>Aktuálne nemáte žiadne pozvánky</h3>
+</div>
+
+<div ng-if="hasName">
+    <form ng-submit="registerClient(user)">
+        <table>
+            <tr>
+                <td><label>Meno</label></td>
+                <td><input type="text" ng-model="user.firstName" required style="width: 200px;"/></td>
+            </tr>
+            <tr>
+                <td><label>Priezvisko</label></td>
+                <td><input type="text" ng-model="user.lastName" required style="width: 200px;"/></td>
+            </tr>
+            <tr>
+                <td><label>Dátum narodenia</label></td>
+                <td><input type="date" ng-model="user.date" required style="width: 200px;"/></td>
+            </tr>
+            <tr>
+                <td><label>Pohlavie</label></td>
+                <td>
+                    <label for="input1">Muž</label><input type="radio" id="input1" ng-model="user.sex" name="radio" required value="Muž" />
+                    <label for="input2">Žena</label><input type="radio" id="input2" ng-model="user.sex" name="radio" value="Žena" />
+                </td>
+            </tr>
+            <tr>
+                <td><input class="btn btn-alert"  type="submit" value="Potvrdiť údaje"></td>
+            </tr>
+        </table>
+    </form>
+</div>

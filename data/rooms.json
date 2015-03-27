@@ -1,0 +1,66 @@
+[
+	{
+		"_id": "548ac5bf436b8c341c8d1ede",
+		"name": "Hlavná plesová sála",
+		"positioning": "top",
+		"order": 0,
+		"parts": [
+			{
+				"order": 0,
+				"positioning": "top",
+				"name": "Časť pod pódiom",
+				"tables": []
+			},
+			{
+				"order": 1,
+				"positioning": "left",
+				"name": "Pozdĺž sklenenej steny",
+				"tables": []
+			},
+			{
+				"order": 2,
+				"positioning": "right",
+				"name": "Na pravo od pódia",
+				"tables": []
+			},
+			{
+				"order": 3,
+				"positioning": "bottom",
+				"name": "Stena oproti pódiu",
+				"tables": []
+			}
+		]
+	},
+	{
+		"_id": "548ac5bf436b8c341c8d1edf",
+		"name": "vedľajšia plesová miestnosť",
+		"positioning": "bottom",
+		"order": 1,
+		"parts": [
+			{
+				"order": 0,
+				"positioning": "top",
+				"name": "Vrchná Časť",
+				"tables": []
+			},
+			{
+				"order": 1,
+				"positioning": "left",
+				"name": "Pozdĺž sklenenej steny",
+				"tables": []
+			},
+			{
+				"order": 2,
+				"positioning": "right",
+				"name": "Na pravo od vrchnej časti",
+				"tables": []
+			},
+			{
+				"order": 3,
+				"positioning": "bottom",
+				"name": "Stena oproti vrchnej časti",
+				"tables": []
+			}
+		]
+	}
+]

@@ -1,0 +1,48 @@
+<div layout="row" layout-sm="column" layout-align="start center">
+    <md-text-float label="Zadaj text pre filtráciu" ng-model="SearchText"></md-text-float>
+    <h2>{{states.length}} / {{(states | filter: SearchText).length}}</h2>
+</div>
+<md-card layout-padding>
+    <md-toolbar class="md-theme-light">
+        <h1 class="md-toolbar-tools">
+            <span>Zoznam stavov miest uložených v Databáze</span>
+        </h1>
+    </md-toolbar>
+    <md-content>
+        <md-list>
+            <md-item ng-repeat="state in states | filter: SearchText | orderBy:'num'">
+                <md-item-content>
+                    <div layout="column">
+                        <div class="md-tile-content" layout="row" class="md-padding">
+                            <md-text-float label="Poradové číslo stavu" ng-model="state.num" disabled></md-text-float>
+                            <md-text-float label="Pomenovanie stavu" ng-model="state.name" disabled></md-text-float>
+                            <md-text-float label="Farba stavu" ng-model="state.color" disabled></md-text-float>
+                            <div layout="row" layout-sm="column" layout-margin layout-align="left center">
+                                <md-button class="md-raised md-primary" ng-click="SaveState(state)">Uložiť</md-button>
+                                <md-button class="md-raised " ng-click="CleanState(state)">Vyčistiť</md-button>
+                                <md-button class="md-raised md-warn" ng-click="DeleteState(state)">Vymazať</md-button>
+                            </div>
+                        </div>
+                    </div>
+                </md-item-content>
+            </md-item>
+        </md-list>
+    </md-content>
+</md-card>
+
+<md-card layout-padding>
+    <md-toolbar class="md-theme-light">
+        <h1 class="md-toolbar-tools">
+            <span>Pridať nový stav miesta do Databázy</span>
+        </h1>
+    </md-toolbar>
+    <md-content>
+        <div layout="column">
+            <div class="md-tile-content" layout="row" class="md-padding">
+                <md-text-float label="Zadaj pomenovanie stavu" ng-model="addState.name" disabled></md-text-float>
+                <md-text-float label="Zadaj pomenovanie farby stavu" ng-model="addState.color" disabled></md-text-float>
+                <md-button class="md-raised md-primary" ng-click="AddState(addState)">Vytvoriť</md-button>
+            </div>
+        </div>
+    </md-content>
+</md-card>

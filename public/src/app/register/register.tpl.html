@@ -1,0 +1,47 @@
+<style>
+    td
+    {
+        width:150px;
+        padding-bottom: 10px;
+    }
+</style>
+
+<h3>Registrácia </h3>
+<form ng-submit="register(user)">
+    <table>
+        <tr>
+            <td><label>Meno</label></td>
+            <td><input type="text" ng-model="user.firstName" required style="width: 200px;"/></td>
+        </tr>
+        <tr>
+            <td><label>Priezvisko</label></td>
+            <td><input type="text" ng-model="user.lastName" required style="width: 200px;"/></td>
+        </tr>
+        <tr>
+            <td><label>E-mail</label></td>
+            <td><input type="email" ng-model="user.email" required style="width: 200px;"/></td>
+        </tr>
+        <tr>
+            <td><label>Heslo</label></td>
+            <td><input type="password" ng-model="user.password" required style="width: 200px;"/></td>
+        </tr>
+        <tr>
+            <td><label>Potvrdenie hesla</label></td>
+            <td><input type="password" ng-model="user.password2" required style="width: 200px;"/></td>
+        </tr>
+        <tr>
+            <td><label>Dátum narodenia</label></td>
+            <td><input type="date" ng-model="user.date" required style="width: 200px;"/></td>
+        </tr>
+        <tr>
+            <td><label>Pohlavie</label></td>
+            <td>
+                <label for="input1">Muž</label><input type="radio" id="input1" ng-model="user.sex" name="radio" required value="Muž" />
+                <label for="input2">Žena</label><input type="radio" id="input2" ng-model="user.sex" name="radio" value="Žena" />
+            </td>
+        </tr>
+        <tr>
+            <td><input class="btn btn-alert"  type="submit" value="Registrovat sa"></td>
+        </tr>
+    </table>
+</form>

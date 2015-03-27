@@ -1,0 +1,21 @@
+[{
+  "tables": [],
+  "name": "top",
+  "order": 0,
+  "state": "1_id_state"
+}, {
+  "tables": [],
+  "name": "left",
+  "order": 1,
+  "state": "1_id_state"
+}, {
+  "tables": [],
+  "name": "right",
+  "order": 2,
+  "state": "1_id_state"
+}, {
+  "tables": [],
+  "name": "bottom",
+  "order": 3,
+  "state": "1_id_state"
+}]

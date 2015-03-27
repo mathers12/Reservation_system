@@ -1,0 +1,30 @@
+<md-dialog>
+    <md-subheader md-theme="cyan" class="md-sticky-">Registrovať</md-subheader>
+    <md-content >
+
+        <form id="dialogForm" ng-submit="submit()" required>
+            <div class="row">
+                <md-text-float  label="Meno" ng-model="first_name"> </md-text-float>
+                <md-text-float label="Priezvisko" ng-model="last_name" class="long"> </md-text-float>
+            </div>
+            <div class="row">
+                <md-text-float label="E-Mail" ng-model="email" type="email"
+                               class="full-width">
+                </md-text-float>
+            </div>
+            <div class="row">
+                <md-text-float label="Tel. číslo" ng-model="mobil"> </md-text-float>
+            </div>
+            <div class="row">
+                <md-checkbox ng-model="under_18" aria-label="Checkbox 1" >
+                    Máš viac ako 18?
+                </md-checkbox>
+            </div>
+
+        </form>
+    </md-content>
+    <div class="md-actions" layout="horizontal" layout-align="end">
+        <md-button ng-click="cancel()" class="md-primary md-raised md-warn" aria-label="Cancel">Zrušiť</md-button>
+        <md-button form="dialogForm" class="md-primary md-raised" type="submit" aria-label="Ok">Potvrdiť</md-button>
+    </div>
+</md-dialog>
