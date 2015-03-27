@@ -79,7 +79,16 @@
                 /*--Email sa uz v DB nachadza--*/
                 if (data.hasAllRoles)
                 {
-                    alert("Daný e-mail už je registrovaný na klienta  a manažéra");
+                    alert("Daný e-mail už je registrovaný na klienta a manazera");
+                    $state.transitionTo($state.current, $stateParams, {
+                        reload: true,
+                        inherit: false,
+                        notify: true
+                    });
+                }
+                else if (data.sameRole)
+                {
+                    alert("Klient s daným e-mailom už danú rolu má, zvoľte inú rolu prosím!");
                     $state.transitionTo($state.current, $stateParams, {
                         reload: true,
                         inherit: false,
@@ -103,7 +112,8 @@
                         reload: true,
                         inherit: false,
                         notify: true
-                    });                }
+                    });
+                }
             },function(err)
             {
                 if (err)
