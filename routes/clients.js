@@ -25,7 +25,7 @@ router.post('/registerNewClient',function(req,res)
                 user.lastName = req.body['lastName'];
                 user.sex = req.body['sex'];
                 user.date_of_birth = req.body['date'];
-                user.roles.push('client');
+                user.roles.push(req.body['role']);
                 user.save(function (err) {
                     if (!err) {
                         mongoose.model('confirmations').findOne({_id: req.body['confirmationId']}, {}, function (err, confirmation) {

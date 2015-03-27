@@ -50,7 +50,7 @@
                 $scope.registerMainAdminForm = false;
             }
             /*--Plati pre hlavneho admina--*/
-            else if (resolvedPerson.addressedTo.firstName === undefined)
+            else if (resolvedPerson.addressedTo.firstName === undefined && resolvedPerson.addressedTo.verifiedEmail !== undefined)
             {
                 $scope.email = resolvedPerson.addressedTo.email;
                 $scope.role = getRoleName(resolvedPerson.role);
