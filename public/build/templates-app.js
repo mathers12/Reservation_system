@@ -790,7 +790,7 @@ angular.module("invitation/invitation.tpl.html", []).run(["$templateCache", func
     "</style>\n" +
     "<div ng-show=\"registerForm\">\n" +
     "<h4>Vložte svoje údaje pre zaregistrovanie sa ako <b ng-model=\"role\">{{role}}</b></h4>\n" +
-    "<form ng-submit=\"register(user)\">\n" +
+    "<form ng-submit=\"register()\">\n" +
     "    <table>\n" +
     "        <tr>\n" +
     "            <td><label>Meno</label></td>\n" +
@@ -829,6 +829,7 @@ angular.module("invitation/invitation.tpl.html", []).run(["$templateCache", func
     "    </table>\n" +
     "</form>\n" +
     "</div>\n" +
+    "</div>\n" +
     "\n" +
     "<div ng-show=\"form\">\n" +
     "    <h4>Vitajte <b>{{firstName+\" \"+lastName}}</b></h4>\n" +
@@ -836,6 +837,40 @@ angular.module("invitation/invitation.tpl.html", []).run(["$templateCache", func
     "        <input type=\"checkbox\" ng-model=\"agreeCheckBox\" required>&nbsp;\n" +
     "        <label>Súhlasím s tým, aby mi bola pridaná rola ako {{role}}</label><br>\n" +
     "            <input class=\"btn btn-alert\"  type=\"submit\" value=\"Potvrdiť\">\n" +
+    "    </form>\n" +
+    "</div>\n" +
+    "\n" +
+    "<div ng-show=\"registerMainAdminForm\">\n" +
+    "    <h4>Vložte svoje údaje pre zaregistrovanie sa ako <b ng-model=\"role\">{{role}}</b></h4>\n" +
+    "    <form ng-submit=\"registerMainAdmin()\">\n" +
+    "        <table>\n" +
+    "            <tr>\n" +
+    "                <td><label>Meno</label></td>\n" +
+    "                <td><input type=\"text\" ng-model=\"firstName\" required style=\"width: 200px;\"/></td>\n" +
+    "            </tr>\n" +
+    "            <tr>\n" +
+    "                <td><label>Priezvisko</label></td>\n" +
+    "                <td><input type=\"text\" ng-model=\"lastName\" required style=\"width: 200px;\"/></td>\n" +
+    "            </tr>\n" +
+    "            <tr>\n" +
+    "                <td><label>E-mail</label></td>\n" +
+    "                <td><input type=\"email\" ng-model=\"email\" disabled style=\"width: 200px;\"/></td>\n" +
+    "            </tr>\n" +
+    "            <tr>\n" +
+    "                <td><label>Dátum narodenia</label></td>\n" +
+    "                <td><input type=\"date\" ng-model=\"date\" required style=\"width: 200px;\"/></td>\n" +
+    "            </tr>\n" +
+    "            <tr>\n" +
+    "                <td><label>Pohlavie</label></td>\n" +
+    "                <td>\n" +
+    "                    <label for=\"input1\">Muž</label><input type=\"radio\" id=\"input1\" ng-model=\"sex\" name=\"radio\" required value=\"Muž\" />\n" +
+    "                    <label for=\"input2\">Žena</label><input type=\"radio\" id=\"input2\" ng-model=\"sex\" name=\"radio\" value=\"Žena\" />\n" +
+    "                </td>\n" +
+    "            </tr>\n" +
+    "            <tr>\n" +
+    "                <td><input class=\"btn btn-alert\"  type=\"submit\" value=\"Registrovat sa\"></td>\n" +
+    "            </tr>\n" +
+    "        </table>\n" +
     "    </form>\n" +
     "</div>");
 }]);

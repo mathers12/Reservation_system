@@ -15,14 +15,44 @@ router.get('/', function(req, res) {
 
 router.post('/registerNewClient',function(req,res)
 {
-        //hashovanie hesla
-        bcrypt.genSalt(10, function(err, salt) {
-            bcrypt.hash(req.body['password'], salt, function(err, hash) {
+    /*Hlavny admin uz si nemusi hashovat heslo*/
+    if (req.body['mainAdmin'])
+    {
+        console.log("SME v mainADmin");
+        mongoose.model('clients').findOne({email: req.body['email']}, {}, function (err, user) {
+            if (user) {
+                user.firstName = req.body['firstName'];
+                user.lastName = req.body['lastName'];
+                user.sex = req.body['sex'];
+                user.date_of_birth = req.body['date'];
+                user.roles.push('client');
+                user.save(function (err) {
+                    if (!err) {
+                        mongoose.model('confirmations').findOne({_id: req.body['confirmationId']}, {}, function (err, confirmation) {
+                            console.log(confirmation);
+                            console.log(req.body['confirmationId']);
+                            if (confirmation) {
+                                confirmation.state = "Prijaté";
+                                confirmation.save(function (err) {
+                                    if (!err) {
+                                        res.send(200);
+                                    }
+                                })
+                            }
+                        });
+                    }
+                });
+            }
+        });
+    }
+    else {
 
-                mongoose.model('clients').findOne({email: req.body['email']},{},function(err,user)
-                {
-                    if (user)
-                    {
+        //hashovanie hesla
+        bcrypt.genSalt(10, function (err, salt) {
+            bcrypt.hash(req.body['password'], salt, function (err, hash) {
+
+                mongoose.model('clients').findOne({email: req.body['email']}, {}, function (err, user) {
+                    if (user) {
                         user.firstName = req.body['firstName'];
                         user.lastName = req.body['lastName'];
                         user.password = hash;
@@ -31,21 +61,15 @@ router.post('/registerNewClient',function(req,res)
                         user.date_of_birth = req.body['date'];
                         user.roles = [req.body['role']];
 
-                        user.save(function(err)
-                        {
-                            if (!err)
-                            {
-                                mongoose.model('confirmations').findOne({_id: req.body['confirmationId']},{},function(err,confirmation)
-                                {
+                        user.save(function (err) {
+                            if (!err) {
+                                mongoose.model('confirmations').findOne({_id: req.body['confirmationId']}, {}, function (err, confirmation) {
                                     console.log(confirmation);
                                     console.log(req.body['confirmationId']);
-                                    if (confirmation)
-                                    {
+                                    if (confirmation) {
                                         confirmation.state = "Prijaté";
-                                        confirmation.save(function(err)
-                                        {
-                                            if (!err)
-                                            {
+                                        confirmation.save(function (err) {
+                                            if (!err) {
                                                 res.send(200);
                                             }
                                         })
@@ -59,6 +83,7 @@ router.post('/registerNewClient',function(req,res)
 
             });
         });
+    }
 });
 
 router.post('/editPassword',function(req,res) {

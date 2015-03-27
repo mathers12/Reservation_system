@@ -47,13 +47,15 @@
                 $scope.role = getRoleName(resolvedPerson.role);
                 $scope.registerForm = true;
                 $scope.form = false;
+                $scope.registerMainAdminForm = false;
             }
             /*--Plati pre hlavneho admina--*/
             else if (resolvedPerson.addressedTo.firstName === undefined)
             {
                 $scope.email = resolvedPerson.addressedTo.email;
                 $scope.role = getRoleName(resolvedPerson.role);
-                $scope.registerForm = true;
+                $scope.registerForm = false;
+                $scope.registerMainAdminForm = true;
                 $scope.form = false;
             }
             /*--Nezobrazime registracny formular, lebo klient uz je v systeme--*/
@@ -65,6 +67,8 @@
                 $scope.role = getRoleName(resolvedPerson.role);
                 $scope.registerForm = false;
                 $scope.form = true;
+                $scope.registerMainAdminForm = false;
+
             }
 
         };
@@ -78,6 +82,35 @@
                 $scope.messageDialog('/login',"Pridelenie roly prebehlo úspešne");
             });
         };
+
+        /*--Pozvanka na potvrdenie pre neregistrovaneho klienta--*/
+        $scope.registerMainAdmin = function()
+        {
+            var user=
+            {
+                firstName: $scope.firstName,
+                lastName: $scope.lastName,
+                email: $scope.email,
+                date: $scope.date,
+                sex: $scope.sex,
+                role: resolvedPerson.role,
+                confirmationId: resolvedPerson._id,
+                mainAdmin: true
+            };
+
+                var User = $resource('/api/clients/registerNewClient');
+                User.save(user,function()
+                {
+                    $scope.messageDialog('/login',"Registrácia prebehla úspešne, teraz sa môžete prihlásiť!");
+                },function(err)
+                {
+                    if (err)
+                    {
+                        $scope.messageDialog($location.url(),"Ooops nastala chyba, opakujte akciu prosím");
+                    }
+                });
+        };
+
         /*--Pozvanka na potvrdenie pre neregistrovaneho klienta--*/
         $scope.register = function()
         {
@@ -92,7 +125,8 @@
               date: $scope.date,
               sex: $scope.sex,
               role: resolvedPerson.role,
-              confirmationId: resolvedPerson._id
+              confirmationId: resolvedPerson._id,
+              mainAdmin: false
             };
 
             /*Hesla su zhodne*/
