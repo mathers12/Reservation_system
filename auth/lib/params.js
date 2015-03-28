@@ -32,7 +32,8 @@ module.exports =
             messageManager: 'manažerom',
             messageClient: 'klientom',
             subject: "Prosím, potvrdťe tento odkaz a vyplňte svoje údaje.",
-            button: "Potvrdiť kliknutím tu!"
+            buttonAccept: "Pre prijatie roly potvrdte tento link",
+            buttonReject: "Pre zamietnutie roly potvrďte tento link"
         },
         htmlForgotPassword:{
             title: "Dobrý deň",

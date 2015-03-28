@@ -41,36 +41,43 @@
         var init = function()
         {
 
-            if (resolvedPerson.addressedTo.verifiedEmail === undefined)
-            {
-                $scope.email = resolvedPerson.addressedTo.email;
-                $scope.role = getRoleName(resolvedPerson.role);
-                $scope.registerForm = true;
-                $scope.form = false;
-                $scope.registerMainAdminForm = false;
-            }
-            /*--Plati pre hlavneho admina--*/
-            else if (resolvedPerson.addressedTo.firstName === undefined && resolvedPerson.addressedTo.verifiedEmail !== undefined)
-            {
-                $scope.email = resolvedPerson.addressedTo.email;
-                $scope.role = getRoleName(resolvedPerson.role);
-                $scope.registerForm = false;
-                $scope.registerMainAdminForm = true;
-                $scope.form = false;
-            }
-            /*--Nezobrazime registracny formular, lebo klient uz je v systeme--*/
-            else
-            {
-                $scope.firstName = resolvedPerson.addressedTo.firstName;
-                $scope.lastName = resolvedPerson.addressedTo.lastName;
-                $scope.email = resolvedPerson.addressedTo.email;
-                $scope.role = getRoleName(resolvedPerson.role);
-                $scope.registerForm = false;
-                $scope.form = true;
-                $scope.registerMainAdminForm = false;
+            if ($location.search().answer === 'accept') {
 
-            }
+                if (resolvedPerson.addressedTo.verifiedEmail === undefined) {
+                    $scope.email = resolvedPerson.addressedTo.email;
+                    $scope.role = getRoleName(resolvedPerson.role);
+                    $scope.registerForm = true;
+                    $scope.form = false;
+                    $scope.registerMainAdminForm = false;
+                }
+                /*--Plati pre hlavneho admina--*/
+                else if (resolvedPerson.addressedTo.firstName === undefined && resolvedPerson.addressedTo.verifiedEmail !== undefined) {
+                    $scope.email = resolvedPerson.addressedTo.email;
+                    $scope.role = getRoleName(resolvedPerson.role);
+                    $scope.registerForm = false;
+                    $scope.registerMainAdminForm = true;
+                    $scope.form = false;
+                }
+                /*--Nezobrazime registracny formular, lebo klient uz je v systeme--*/
+                else {
+                    $scope.firstName = resolvedPerson.addressedTo.firstName;
+                    $scope.lastName = resolvedPerson.addressedTo.lastName;
+                    $scope.email = resolvedPerson.addressedTo.email;
+                    $scope.role = getRoleName(resolvedPerson.role);
+                    $scope.registerForm = false;
+                    $scope.form = true;
+                    $scope.registerMainAdminForm = false;
 
+                }
+            }
+            else if ($location.search().answer === 'reject')
+            {
+                var acceptRole = $resource('/api/clients/rejectRole');
+                acceptRole.save({confirmationId: resolvedPerson._id},function()
+                {
+                    $scope.messageDialog('/login',"Zamietnutie roly prebehlo úspešne");
+                });
+            }
         };
 
         /*--Pozvanka na potvrdenie pre registrovaneho klienta--*/

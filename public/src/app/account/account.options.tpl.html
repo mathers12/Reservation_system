@@ -40,12 +40,12 @@
             <td><input type="text" ng-model="last_name" placeholder="{{client.lastName}}"></td>
             <td><button ng-click="editName(client._id,last_name,'lastName')">Upraviť</button></td>
         </tr>
-        <tr ng-if="client.password !== undefined">
+        <tr ng-show="client.password !== undefined">
             <td ><input ng-model="oldPassword" type="password" placeholder="Staré heslo"></td>
             <td ><input ng-model="password" type="password" placeholder="Nové heslo"></td>
             <td ><input ng-model="password2" type="password" placeholder="Nové heslo ešte raz"></td>
         </tr>
-        <tr ng-if="client.password !== undefined">
+        <tr ng-show="client.password !== undefined">
             <td></td>
             <td><button ng-click="editPassword(oldPassword,password,password2)">Potvrdiť heslo</button></td>
             <td></td>

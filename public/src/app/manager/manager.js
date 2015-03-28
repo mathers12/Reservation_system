@@ -104,7 +104,6 @@
         $scope.editPassword = function(oldPassword,password,password2)
         {
             console.log(oldPassword);
-            console.log(password2);
             if (password === password2)
             {
                 var EditPassword = $resource('/api/clients/editOldPassword');
@@ -141,7 +140,6 @@
             }
 
         };
-
 
         $scope.sendInvitation = function()
         {

@@ -112,12 +112,12 @@ angular.module("account/account.options.tpl.html", []).run(["$templateCache", fu
     "            <td><input type=\"text\" ng-model=\"last_name\" placeholder=\"{{client.lastName}}\"></td>\n" +
     "            <td><button ng-click=\"editName(client._id,last_name,'lastName')\">Upraviť</button></td>\n" +
     "        </tr>\n" +
-    "        <tr ng-if=\"client.password !== undefined\">\n" +
+    "        <tr ng-show=\"client.password !== undefined\">\n" +
     "            <td ><input ng-model=\"oldPassword\" type=\"password\" placeholder=\"Staré heslo\"></td>\n" +
     "            <td ><input ng-model=\"password\" type=\"password\" placeholder=\"Nové heslo\"></td>\n" +
     "            <td ><input ng-model=\"password2\" type=\"password\" placeholder=\"Nové heslo ešte raz\"></td>\n" +
     "        </tr>\n" +
-    "        <tr ng-if=\"client.password !== undefined\">\n" +
+    "        <tr ng-show=\"client.password !== undefined\">\n" +
     "            <td></td>\n" +
     "            <td><button ng-click=\"editPassword(oldPassword,password,password2)\">Potvrdiť heslo</button></td>\n" +
     "            <td></td>\n" +
@@ -287,12 +287,12 @@ angular.module("admin/admin.options.tpl.html", []).run(["$templateCache", functi
     "            <td><input type=\"text\" ng-model=\"last_name\" placeholder=\"{{client.lastName}}\"></td>\n" +
     "            <td><button ng-click=\"editName(client._id,last_name,'lastName')\">Upraviť</button></td>\n" +
     "        </tr>\n" +
-    "        <tr ng-if=\"client.password !== undefined\">\n" +
+    "        <tr ng-show=\"client.password !== undefined\">\n" +
     "            <td ><input ng-model=\"oldPassword\" type=\"password\" placeholder=\"Staré heslo\"></td>\n" +
     "            <td ><input ng-model=\"password\" type=\"password\" placeholder=\"Nové heslo\"></td>\n" +
     "            <td ><input ng-model=\"password2\" type=\"password\" placeholder=\"Nové heslo ešte raz\"></td>\n" +
     "        </tr>\n" +
-    "        <tr ng-if=\"client.password !== undefined\">\n" +
+    "        <tr ng-show=\"client.password !== undefined\">\n" +
     "            <td></td>\n" +
     "            <td><button ng-click=\"editPassword(oldPassword,password,password2)\">Potvrdiť heslo</button></td>\n" +
     "            <td></td>\n" +
@@ -1087,12 +1087,12 @@ angular.module("manager/manager.options.tpl.html", []).run(["$templateCache", fu
     "            <td><input type=\"text\" ng-model=\"last_name\" placeholder=\"{{client.lastName}}\"></td>\n" +
     "            <td><button ng-click=\"editName(client._id,last_name,'lastName')\">Upraviť</button></td>\n" +
     "        </tr>\n" +
-    "        <tr ng-if=\"client.password !== undefined\">\n" +
+    "        <tr ng-show=\"client.password !== undefined\">\n" +
     "            <td ><input ng-model=\"oldPassword\" type=\"password\" placeholder=\"Staré heslo\"></td>\n" +
     "            <td ><input ng-model=\"password\" type=\"password\" placeholder=\"Nové heslo\"></td>\n" +
     "            <td ><input ng-model=\"password2\" type=\"password\" placeholder=\"Nové heslo ešte raz\"></td>\n" +
     "        </tr>\n" +
-    "        <tr ng-if=\"client.password !== undefined\">\n" +
+    "        <tr ng-show=\"client.password !== undefined\">\n" +
     "            <td></td>\n" +
     "            <td><button ng-click=\"editPassword(oldPassword,password,password2)\">Potvrdiť heslo</button></td>\n" +
     "            <td></td>\n" +

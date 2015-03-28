@@ -288,7 +288,8 @@ router.post('/resend',function(req,res)
 
 var structureInvitationHtmlEmail = function(confirmationId,addressedId,role,email,request,res)
 {
-    var link = 'http://' + request.get('host') + '/auth/invitation?id=' + addressedId+"&role="+role;
+    var linkAccept = 'http://' + request.get('host') + '/auth/invitation?id=' + addressedId+"&role="+role+"&answer=accept";
+    var linkReject = 'http://' + request.get('host') + '/auth/invitation?id=' + addressedId+"&role="+role+"&answer=reject";
 
     mongoose.model('clients').find({email: request.body['fromEmail']},{},function(err,user)
     {
@@ -309,7 +310,8 @@ var structureInvitationHtmlEmail = function(confirmationId,addressedId,role,emai
            }
            /*--Udaje pre E-mail--*/
            var htmlData = {
-               link: link,
+               linkAccept: linkAccept,
+               linkReject: linkReject,
                title: params.email.htmlInvitation.title,
                role: role,
                user: (user[0].firstName === undefined)?user[0].email:user[0].firstName+" "+user[0].lastName+" ["+user[0].email+"]",
@@ -317,7 +319,8 @@ var structureInvitationHtmlEmail = function(confirmationId,addressedId,role,emai
                roleName: roleName,
                message: params.email.htmlInvitation.message,
                subject: params.email.htmlInvitation.subject,
-               button: params.email.htmlInvitation.button,
+               buttonAccept: params.email.htmlInvitation.buttonAccept,
+               buttonReject: params.email.htmlInvitation.buttonReject,
                footer: params.email.footer,
                emailSubject: params.email.subject
            };
@@ -575,7 +578,7 @@ router.get('/invitation',function(req,res)
        /*--Ak chceme dat rolu neregistrovanemu klientovi--*/
         if (user)
         {
-            res.redirect('/invitation?id='+user._id+"&role="+req.query.role);
+            res.redirect('/invitation?id='+user._id+"&role="+req.query.role+"&answer="+req.query.answer);
         }
         /*--Zadanie ID neexistuje v DB--*/
         else
