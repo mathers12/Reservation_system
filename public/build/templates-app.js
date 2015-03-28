@@ -1,4 +1,4 @@
-angular.module('templates-app', ['about/about.tpl.html', 'account/account.invitations.tpl.html', 'account/account.options.tpl.html', 'account/account.tpl.html', 'admin/admin.invitations.tpl.html', 'admin/admin.receivedInvitations.tpl.html', 'admin/admin.sendInvitation.tpl.html', 'admin/admin.tpl.html', 'clients/clients.tpl.html', 'forgotPassword/forgotPassword.tpl.html', 'home/home.tpl.html', 'invitation/invitation.tpl.html', 'login/login.tpl.html', 'manager/manager.invitations.tpl.html', 'manager/manager.receivedInvitations.tpl.html', 'manager/manager.sendInvitation.tpl.html', 'manager/manager.tpl.html', 'parts/parts.tpl.html', 'profiles/profiles.tpl.html', 'register/register.tpl.html', 'rooms/rooms.tpl.html', 'seats/seats.tpl.html', 'states/states.tpl.html', 'tables/tables.tpl.html', 'users/users.tpl.html']);
+angular.module('templates-app', ['about/about.tpl.html', 'account/account.invitations.tpl.html', 'account/account.options.tpl.html', 'account/account.tpl.html', 'admin/admin.invitations.tpl.html', 'admin/admin.options.tpl.html', 'admin/admin.receivedInvitations.tpl.html', 'admin/admin.sendInvitation.tpl.html', 'admin/admin.tpl.html', 'clients/clients.tpl.html', 'forgotPassword/forgotPassword.tpl.html', 'home/home.tpl.html', 'invitation/invitation.tpl.html', 'login/login.tpl.html', 'manager/manager.invitations.tpl.html', 'manager/manager.options.tpl.html', 'manager/manager.receivedInvitations.tpl.html', 'manager/manager.sendInvitation.tpl.html', 'manager/manager.tpl.html', 'parts/parts.tpl.html', 'profiles/profiles.tpl.html', 'register/register.tpl.html', 'rooms/rooms.tpl.html', 'seats/seats.tpl.html', 'states/states.tpl.html', 'tables/tables.tpl.html', 'users/users.tpl.html']);
 
 angular.module("about/about.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("about/about.tpl.html",
@@ -112,12 +112,12 @@ angular.module("account/account.options.tpl.html", []).run(["$templateCache", fu
     "            <td><input type=\"text\" ng-model=\"last_name\" placeholder=\"{{client.lastName}}\"></td>\n" +
     "            <td><button ng-click=\"editName(client._id,last_name,'lastName')\">Upraviť</button></td>\n" +
     "        </tr>\n" +
-    "        <tr>\n" +
+    "        <tr ng-if=\"client.password !== undefined\">\n" +
     "            <td ><input ng-model=\"oldPassword\" type=\"password\" placeholder=\"Staré heslo\"></td>\n" +
     "            <td ><input ng-model=\"password\" type=\"password\" placeholder=\"Nové heslo\"></td>\n" +
     "            <td ><input ng-model=\"password2\" type=\"password\" placeholder=\"Nové heslo ešte raz\"></td>\n" +
     "        </tr>\n" +
-    "        <tr>\n" +
+    "        <tr ng-if=\"client.password !== undefined\">\n" +
     "            <td></td>\n" +
     "            <td><button ng-click=\"editPassword(oldPassword,password,password2)\">Potvrdiť heslo</button></td>\n" +
     "            <td></td>\n" +
@@ -157,7 +157,7 @@ angular.module("account/account.tpl.html", []).run(["$templateCache", function($
     "        margin-left: 200px;\n" +
     "    }\n" +
     "</style>\n" +
-    "<h1 ng-repeat=\"client in clients\">Správa účtu používateľa <b>{{client.firstName}}</b> <b>{{client.lastName}}</b></h1><br>\n" +
+    "<h1 ng-repeat=\"client in clients\">Správa účtu používateľa <b>{{client.firstName}}</b> <b>{{client.lastName}}</b> <b>[{{client.email}}]</b></h1><br>\n" +
     "<div id=\"left\">\n" +
     "    <table>\n" +
     "        <tr>\n" +
@@ -240,6 +240,64 @@ angular.module("admin/admin.invitations.tpl.html", []).run(["$templateCache", fu
     "</div>\n" +
     "<div ng-if=\"!createdByConfirmations.length\">\n" +
     "    <h3>Aktuálne nemáte žiadne poslané pozvánky</h3>\n" +
+    "</div>");
+}]);
+
+angular.module("admin/admin.options.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("admin/admin.options.tpl.html",
+    "<style>\n" +
+    "    #options th\n" +
+    "    {\n" +
+    "        width: 190px;\n" +
+    "        text-align: center;\n" +
+    "        border: 2px solid black;\n" +
+    "    }\n" +
+    "    #options td\n" +
+    "    {\n" +
+    "        width: 190px;\n" +
+    "        text-align: center;\n" +
+    "        vertical-align: middle;\n" +
+    "\n" +
+    "        border: 2px solid black;\n" +
+    "    }\n" +
+    "\n" +
+    "    #options button\n" +
+    "    {\n" +
+    "        width: 160px;\n" +
+    "        text-align:center;\n" +
+    "        margin-top:5px;\n" +
+    "    }\n" +
+    "    input{\n" +
+    "        width: 160px;\n" +
+    "        text-align: center;\n" +
+    "        vertical-align: middle;\n" +
+    "        margin-top:5px;\n" +
+    "    }\n" +
+    "\n" +
+    "</style>\n" +
+    "<div id=\"options\" >\n" +
+    "    <table ng-repeat=\"client in clients\">\n" +
+    "        <tr>\n" +
+    "            <td>MENO</td>\n" +
+    "            <td><input type=\"text\" ng-model=\"first_name\" placeholder=\"{{client.firstName}}\"></td>\n" +
+    "            <td><button ng-click=\"editName(client._id,first_name,'firstName')\">Upraviť</button></td>\n" +
+    "        </tr>\n" +
+    "        <tr>\n" +
+    "            <td>PRIEZVISKO</td>\n" +
+    "            <td><input type=\"text\" ng-model=\"last_name\" placeholder=\"{{client.lastName}}\"></td>\n" +
+    "            <td><button ng-click=\"editName(client._id,last_name,'lastName')\">Upraviť</button></td>\n" +
+    "        </tr>\n" +
+    "        <tr ng-if=\"client.password !== undefined\">\n" +
+    "            <td ><input ng-model=\"oldPassword\" type=\"password\" placeholder=\"Staré heslo\"></td>\n" +
+    "            <td ><input ng-model=\"password\" type=\"password\" placeholder=\"Nové heslo\"></td>\n" +
+    "            <td ><input ng-model=\"password2\" type=\"password\" placeholder=\"Nové heslo ešte raz\"></td>\n" +
+    "        </tr>\n" +
+    "        <tr ng-if=\"client.password !== undefined\">\n" +
+    "            <td></td>\n" +
+    "            <td><button ng-click=\"editPassword(oldPassword,password,password2)\">Potvrdiť heslo</button></td>\n" +
+    "            <td></td>\n" +
+    "        </tr>\n" +
+    "    </table>\n" +
     "</div>");
 }]);
 
@@ -412,7 +470,7 @@ angular.module("admin/admin.tpl.html", []).run(["$templateCache", function($temp
     "    }\n" +
     "    button\n" +
     "    {\n" +
-    "        width: 150px;\n" +
+    "        width: 200px;\n" +
     "    }\n" +
     "\n" +
     "    #left\n" +
@@ -425,7 +483,7 @@ angular.module("admin/admin.tpl.html", []).run(["$templateCache", function($temp
     "        margin-left: 200px;\n" +
     "    }\n" +
     "</style>\n" +
-    "<h1>Vitajte v systéme T-res ako administrátor</h1><br>\n" +
+    "<h1 ng-repeat=\"client in clients\">Správa účtu používateľa <b>{{client.firstName}}</b> <b>{{client.lastName}}</b> <b>[{{client.email}}]</b></h1><br>\n" +
     "<div id=\"left\">\n" +
     "<table>\n" +
     "    <tr>\n" +
@@ -446,6 +504,12 @@ angular.module("admin/admin.tpl.html", []).run(["$templateCache", function($temp
     "    <tr>\n" +
     "        <td>\n" +
     "            <button class=\"btn btn-alert\" ui-sref=\"admin.sendInvitation\">Poslať pozvánku</button>\n" +
+    "        </td>\n" +
+    "    </tr>\n" +
+    "\n" +
+    "    <tr>\n" +
+    "        <td>\n" +
+    "            <button class=\"btn btn-alert\" ui-sref=\"admin.options\">Zmeniť nastavenia účtu</button>\n" +
     "        </td>\n" +
     "    </tr>\n" +
     "    <tr>\n" +
@@ -979,6 +1043,64 @@ angular.module("manager/manager.invitations.tpl.html", []).run(["$templateCache"
     "</div>");
 }]);
 
+angular.module("manager/manager.options.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("manager/manager.options.tpl.html",
+    "<style>\n" +
+    "    #options th\n" +
+    "    {\n" +
+    "        width: 190px;\n" +
+    "        text-align: center;\n" +
+    "        border: 2px solid black;\n" +
+    "    }\n" +
+    "    #options td\n" +
+    "    {\n" +
+    "        width: 190px;\n" +
+    "        text-align: center;\n" +
+    "        vertical-align: middle;\n" +
+    "\n" +
+    "        border: 2px solid black;\n" +
+    "    }\n" +
+    "\n" +
+    "    #options button\n" +
+    "    {\n" +
+    "        width: 160px;\n" +
+    "        text-align:center;\n" +
+    "        margin-top:5px;\n" +
+    "    }\n" +
+    "    input{\n" +
+    "        width: 160px;\n" +
+    "        text-align: center;\n" +
+    "        vertical-align: middle;\n" +
+    "        margin-top:5px;\n" +
+    "    }\n" +
+    "\n" +
+    "</style>\n" +
+    "<div id=\"options\" >\n" +
+    "    <table ng-repeat=\"client in clients\">\n" +
+    "        <tr>\n" +
+    "            <td>MENO</td>\n" +
+    "            <td><input type=\"text\" ng-model=\"first_name\" placeholder=\"{{client.firstName}}\"></td>\n" +
+    "            <td><button ng-click=\"editName(client._id,first_name,'firstName')\">Upraviť</button></td>\n" +
+    "        </tr>\n" +
+    "        <tr>\n" +
+    "            <td>PRIEZVISKO</td>\n" +
+    "            <td><input type=\"text\" ng-model=\"last_name\" placeholder=\"{{client.lastName}}\"></td>\n" +
+    "            <td><button ng-click=\"editName(client._id,last_name,'lastName')\">Upraviť</button></td>\n" +
+    "        </tr>\n" +
+    "        <tr ng-if=\"client.password !== undefined\">\n" +
+    "            <td ><input ng-model=\"oldPassword\" type=\"password\" placeholder=\"Staré heslo\"></td>\n" +
+    "            <td ><input ng-model=\"password\" type=\"password\" placeholder=\"Nové heslo\"></td>\n" +
+    "            <td ><input ng-model=\"password2\" type=\"password\" placeholder=\"Nové heslo ešte raz\"></td>\n" +
+    "        </tr>\n" +
+    "        <tr ng-if=\"client.password !== undefined\">\n" +
+    "            <td></td>\n" +
+    "            <td><button ng-click=\"editPassword(oldPassword,password,password2)\">Potvrdiť heslo</button></td>\n" +
+    "            <td></td>\n" +
+    "        </tr>\n" +
+    "    </table>\n" +
+    "</div>");
+}]);
+
 angular.module("manager/manager.receivedInvitations.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("manager/manager.receivedInvitations.tpl.html",
     "<style>\n" +
@@ -1117,7 +1239,7 @@ angular.module("manager/manager.tpl.html", []).run(["$templateCache", function($
     "    }\n" +
     "    button\n" +
     "    {\n" +
-    "        width: 150px;\n" +
+    "        width: 200px;\n" +
     "    }\n" +
     "\n" +
     "    #left\n" +
@@ -1130,7 +1252,7 @@ angular.module("manager/manager.tpl.html", []).run(["$templateCache", function($
     "        margin-left: 200px;\n" +
     "    }\n" +
     "</style>\n" +
-    "<h1>Vitajte v systéme T-res ako manažér</h1><br>\n" +
+    "<h1 ng-repeat=\"client in clients\">Správa účtu používateľa <b>{{client.firstName}}</b> <b>{{client.lastName}}</b> <b>[{{client.email}}]</b></h1><br>\n" +
     "<div id=\"left\">\n" +
     "    <table>\n" +
     "        <tr>\n" +
@@ -1151,6 +1273,11 @@ angular.module("manager/manager.tpl.html", []).run(["$templateCache", function($
     "        <tr>\n" +
     "            <td>\n" +
     "                <button class=\"btn btn-alert\" ui-sref=\"manager.sendInvitation\">Poslať pozvánku</button>\n" +
+    "            </td>\n" +
+    "        </tr>\n" +
+    "        <tr>\n" +
+    "            <td>\n" +
+    "                <button class=\"btn btn-alert\" ui-sref=\"manager.options\">Zmeniť nastavenia účtu</button>\n" +
     "            </td>\n" +
     "        </tr>\n" +
     "        <tr>\n" +

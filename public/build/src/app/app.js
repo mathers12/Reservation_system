@@ -193,9 +193,6 @@
         }]
     );
 
-
-
-
     app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$mdThemingProvider', function ($stateProvider, $urlRouterProvider, $locationProvider, $mdThemingProvider) {
 
         $locationProvider.html5Mode({

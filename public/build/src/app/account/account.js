@@ -45,40 +45,37 @@
             $scope.clients= Clients.query({id: isLogged.id});
         };
 
-        $scope.editName = function(clientId,modifiedName,name)
-        {
-            if (name === 'firstName')
-            {
-                var FirstName = $resource('/api/clients/editFirstName');
-                FirstName.save({id: clientId,firstName: modifiedName},function()
-                {
-                    alert("Meno zmenené");
-                    var Clients = $resource('/api/clients/getAllAboutUser');
-                    $scope.clients= Clients.query({id: isLogged.id});
 
-                    $state.transitionTo($state.current, $stateParams, {
-                        reload: true,
-                        inherit: false,
-                        notify: true
+        $scope.editName =  function (clientId, modifiedName, name) {
+                if (name === 'firstName') {
+                    var FirstName = $resource('/api/clients/editFirstName');
+                    FirstName.save({id: clientId, firstName: modifiedName}, function () {
+                        alert("Meno zmenené");
+                        var Clients = $resource('/api/clients/getAllAboutUser');
+                        $scope.clients = Clients.query({id: isLogged.id});
+
+                        $state.transitionTo($state.current, $stateParams, {
+                            reload: true,
+                            inherit: false,
+                            notify: true
+                        });
                     });
-                });
-            }
-            else if (name === 'lastName')
-            {
-                var LastName = $resource('/api/clients/editLastName');
-                LastName.save({id: clientId,lastName: modifiedName},function()
-                {
-                    alert("Priezvisko zmenené");
-                    var Clients = $resource('/api/clients/getAllAboutUser');
-                    $scope.clients= Clients.query({id: isLogged.id});
-                    $state.transitionTo($state.current, $stateParams, {
-                        reload: true,
-                        inherit: false,
-                        notify: true
+                }
+                else if (name === 'lastName') {
+                    var LastName = $resource('/api/clients/editLastName');
+                    LastName.save({id: clientId, lastName: modifiedName}, function () {
+                        alert("Priezvisko zmenené");
+                        var Clients = $resource('/api/clients/getAllAboutUser');
+                        $scope.clients = Clients.query({id: isLogged.id});
+                        $state.transitionTo($state.current, $stateParams, {
+                            reload: true,
+                            inherit: false,
+                            notify: true
+                        });
                     });
-                });
-            }
-        };
+                }
+            };
+
 
         $scope.editPassword = function(oldPassword,password,password2)
         {

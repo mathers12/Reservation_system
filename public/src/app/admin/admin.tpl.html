@@ -14,7 +14,7 @@
     }
     button
     {
-        width: 150px;
+        width: 200px;
     }
 
     #left
@@ -27,7 +27,7 @@
         margin-left: 200px;
     }
 </style>
-<h1>Vitajte v systéme T-res ako administrátor</h1><br>
+<h1 ng-repeat="client in clients">Správa účtu používateľa <b>{{client.firstName}}</b> <b>{{client.lastName}}</b> <b>[{{client.email}}]</b></h1><br>
 <div id="left">
 <table>
     <tr>
@@ -48,6 +48,12 @@
     <tr>
         <td>
             <button class="btn btn-alert" ui-sref="admin.sendInvitation">Poslať pozvánku</button>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <button class="btn btn-alert" ui-sref="admin.options">Zmeniť nastavenia účtu</button>
         </td>
     </tr>
     <tr>

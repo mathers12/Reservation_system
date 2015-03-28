@@ -33,6 +33,11 @@
                 url: "/receivedInvitations",
                 templateUrl: "manager/manager.receivedInvitations.tpl.html",
                 controller: "managerController"
+            })
+            .state('manager.options', {
+                url: "/options",
+                templateUrl: "manager/manager.options.tpl.html",
+                controller: "managerController"
             });
     }]);
 
@@ -60,7 +65,83 @@
             var addressedToConfirmations = $resource('/api/confirmations/getAddressedToWithEmail');
             $scope.addressedToConfirmations= addressedToConfirmations.query({email: isLogged.email});
 
+
+            var Clients = $resource('/api/clients/getAllAboutUser');
+            $scope.clients= Clients.query({id: isLogged.id});
         };
+
+        $scope.editName =  function (clientId, modifiedName, name) {
+            if (name === 'firstName') {
+                var FirstName = $resource('/api/clients/editFirstName');
+                FirstName.save({id: clientId, firstName: modifiedName}, function () {
+                    alert("Meno zmenené");
+                    var Clients = $resource('/api/clients/getAllAboutUser');
+                    $scope.clients = Clients.query({id: isLogged.id});
+
+                    $state.transitionTo($state.current, $stateParams, {
+                        reload: true,
+                        inherit: false,
+                        notify: true
+                    });
+                });
+            }
+            else if (name === 'lastName') {
+                var LastName = $resource('/api/clients/editLastName');
+                LastName.save({id: clientId, lastName: modifiedName}, function () {
+                    alert("Priezvisko zmenené");
+                    var Clients = $resource('/api/clients/getAllAboutUser');
+                    $scope.clients = Clients.query({id: isLogged.id});
+                    $state.transitionTo($state.current, $stateParams, {
+                        reload: true,
+                        inherit: false,
+                        notify: true
+                    });
+                });
+            }
+        };
+
+
+        $scope.editPassword = function(oldPassword,password,password2)
+        {
+            console.log(oldPassword);
+            console.log(password2);
+            if (password === password2)
+            {
+                var EditPassword = $resource('/api/clients/editOldPassword');
+                EditPassword.save({id: isLogged.id,oldPassword: oldPassword,newPassword: password},function(data)
+                {
+                    if (data.oldPassword)
+                    {
+                        alert("Heslo sa úspešne zmenilo");
+                        $state.transitionTo($state.current, $stateParams, {
+                            reload: true,
+                            inherit: false,
+                            notify: true
+                        });
+                    }
+                    else
+                    {
+                        alert("Staré heslo nie je správne");
+                        $state.transitionTo($state.current, $stateParams, {
+                            reload: true,
+                            inherit: false,
+                            notify: true
+                        });
+                    }
+                });
+            }
+            else
+            {
+                alert("Nové heslo sa nezhoduje!");
+                $state.transitionTo($state.current, $stateParams, {
+                    reload: true,
+                    inherit: false,
+                    notify: true
+                });
+            }
+
+        };
+
 
         $scope.sendInvitation = function()
         {

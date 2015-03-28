@@ -193,9 +193,6 @@
         }
     );
 
-
-
-
     app.config(function ($stateProvider, $urlRouterProvider, $locationProvider, $mdThemingProvider) {
 
         $locationProvider.html5Mode({
