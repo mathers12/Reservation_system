@@ -10,6 +10,7 @@ var roomsSchema = new Schema({
 
 		}],
 	name: String,
+
 	positioning: String,
 	order: Number
 },{});
