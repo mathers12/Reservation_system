@@ -985,29 +985,31 @@ angular.module("login/login.tpl.html", []).run(["$templateCache", function($temp
 angular.module("manager/manager.invitations.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("manager/manager.invitations.tpl.html",
     "<style>\n" +
+    "\n" +
     "    #invitations th\n" +
     "    {\n" +
-    "        width: 180px;\n" +
+    "        width: 190px;\n" +
     "        text-align: center;\n" +
     "        border: 2px solid black;\n" +
     "    }\n" +
     "    #invitations td\n" +
     "    {\n" +
-    "        width: 180px;\n" +
+    "        width: 190px;\n" +
     "        text-align: center;\n" +
+    "        vertical-align: middle;\n" +
+    "\n" +
     "        border: 2px solid black;\n" +
     "    }\n" +
     "\n" +
     "    #invitations button\n" +
     "    {\n" +
-    "        width: 130px;\n" +
+    "        width: 160px;\n" +
+    "        text-align:center;\n" +
+    "        margin-top:5px;\n" +
     "    }\n" +
-    "    #buttonTop\n" +
-    "    {\n" +
-    "        margin-bottom: 5px;\n" +
-    "    }\n" +
+    "\n" +
     "</style>\n" +
-    "<div id=\"invitations\" ng-if=\"createdByConfirmations.length\">\n" +
+    "<div id=\"invitations\" ng-show=\"createdByConfirmations.length\">\n" +
     "<table >\n" +
     "    <tr>\n" +
     "        <th><h3>Komu</h3></th>\n" +
@@ -1037,10 +1039,10 @@ angular.module("manager/manager.invitations.tpl.html", []).run(["$templateCache"
     "        </td>\n" +
     "    </tr>\n" +
     "</table>\n" +
+    "<h3 ng-show=\"!createdByConfirmations.length\">Aktuálne nemáte žiadne poslané pozvánky</h3>\n" +
     "</div>\n" +
-    "<div ng-if=\"!createdByConfirmations.length\">\n" +
-    "    <h3>Aktuálne nemáte žiadne poslané pozvánky</h3>\n" +
-    "</div>");
+    "\n" +
+    "");
 }]);
 
 angular.module("manager/manager.options.tpl.html", []).run(["$templateCache", function($templateCache) {
@@ -1104,29 +1106,31 @@ angular.module("manager/manager.options.tpl.html", []).run(["$templateCache", fu
 angular.module("manager/manager.receivedInvitations.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("manager/manager.receivedInvitations.tpl.html",
     "<style>\n" +
+    "\n" +
     "    #invitations th\n" +
     "    {\n" +
-    "        width: 180px;\n" +
+    "        width: 190px;\n" +
     "        text-align: center;\n" +
     "        border: 2px solid black;\n" +
     "    }\n" +
     "    #invitations td\n" +
     "    {\n" +
-    "        width: 180px;\n" +
+    "        width: 190px;\n" +
     "        text-align: center;\n" +
+    "        vertical-align: middle;\n" +
+    "\n" +
     "        border: 2px solid black;\n" +
     "    }\n" +
     "\n" +
     "    #invitations button\n" +
     "    {\n" +
-    "        width: 130px;\n" +
+    "        width: 160px;\n" +
+    "        text-align:center;\n" +
+    "        margin-top:5px;\n" +
     "    }\n" +
-    "    #buttonTop\n" +
-    "    {\n" +
-    "        margin-bottom: 5px;\n" +
-    "    }\n" +
+    "\n" +
     "</style>\n" +
-    "<div id=\"invitations\" ng-if=\"addressedToConfirmations.length\">\n" +
+    "<div id=\"invitations\" ng-show=\"addressedToConfirmations.length\">\n" +
     "    <table >\n" +
     "        <tr>\n" +
     "            <th><h3>Od koho</h3></th>\n" +
@@ -1156,10 +1160,10 @@ angular.module("manager/manager.receivedInvitations.tpl.html", []).run(["$templa
     "            </td>\n" +
     "        </tr>\n" +
     "    </table>\n" +
+    "<h3 ng-show=\"!addressedToConfirmations.length\">Aktuálne nemáte žiadne pozvánky</h3>\n" +
     "</div>\n" +
-    "<div ng-if=\"!addressedToConfirmations.length\">\n" +
-    "    <h3>Aktuálne nemáte žiadne pozvánky</h3>\n" +
-    "</div>");
+    "\n" +
+    "");
 }]);
 
 angular.module("manager/manager.sendInvitation.tpl.html", []).run(["$templateCache", function($templateCache) {
