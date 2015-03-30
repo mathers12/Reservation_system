@@ -1,0 +1,66 @@
+#invitations td
+{
+    width: 180px;
+    text-align: center;
+    border: 2px solid black;
+}
+
+
+#invitations button
+{
+    width: 130px;
+    text-align: center;
+    vertical-align: middle;
+    margin-top:10px;
+    margin-bottom:10px;
+    font-weight: bold;
+}
+
+
+#invitations select
+{
+
+    width: 160px;
+    text-align:center;
+    margin-top:5px;
+}
+#menu button:hover,input[type="submit"]:hover
+{
+    background-color:#4682B4;
+
+}
+#menu td
+{
+    padding-bottom: 10px;
+}
+
+#menu button:hover,input[type="submit"]:hover
+{
+    background-color:#4682B4;
+
+}
+#menu  button
+{
+    width: 200px;
+}
+
+#left
+{
+    float:left;
+}
+#center
+{
+    margin-left: 400px;
+}
+#buttonTop
+{
+    margin-bottom: 5px;
+}
+
+#invitations input{
+    width: 160px;
+    text-align: center;
+    vertical-align: middle;
+    margin-top:10px;
+    margin-bottom:10px;
+}

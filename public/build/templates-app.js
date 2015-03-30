@@ -29,12 +29,12 @@ angular.module("account/account.invitations.tpl.html", []).run(["$templateCache"
     "            </td>\n" +
     "        <td ng-if=\"confirmation.state === 'Prijaté'\">\n" +
     "            <h3>\n" +
-    "                <button disabled>Prijaté</button>\n" +
+    "                <button disabled>Prijal som</button>\n" +
     "            </h3>\n" +
     "        </td>\n" +
     "        <td ng-if=\"confirmation.state === 'Zamietnuté'\">\n" +
     "            <h3>\n" +
-    "                <button disabled>Zamietnuté</button>\n" +
+    "                <button disabled>Zamietnul som</button>\n" +
     "            </h3>\n" +
     "        </td>\n" +
     "    </tr>\n" +
@@ -122,12 +122,12 @@ angular.module("admin/admin.invitations.tpl.html", []).run(["$templateCache", fu
     "            </td>\n" +
     "        <td ng-if=\"confirmation.state === 'Prijaté'\">\n" +
     "            <h3>\n" +
-    "                Prijaté klientom\n" +
+    "                <button>Prijaté klientom</button>\n" +
     "            </h3>\n" +
     "        </td>\n" +
     "        <td ng-if=\"confirmation.state === 'Zamietnuté'\">\n" +
     "            <h3>\n" +
-    "                Zamietnuté klientom\n" +
+    "                <button>Zamietnuté klientom</button>\n" +
     "            </h3>\n" +
     "        </td>\n" +
     "    </tr>\n" +
@@ -189,12 +189,12 @@ angular.module("admin/admin.receivedInvitations.tpl.html", []).run(["$templateCa
     "            </td>\n" +
     "            <td ng-if=\"confirmation.state === 'Prijaté'\">\n" +
     "                <h3>\n" +
-    "                    <button disabled>Prijaté</button>\n" +
+    "                    <button disabled>Prijal som</button>\n" +
     "                </h3>\n" +
     "            </td>\n" +
     "            <td ng-if=\"confirmation.state === 'Zamietnuté'\">\n" +
     "                <h3>\n" +
-    "                    <button disabled>Zamietnuté</button>\n" +
+    "                    <button disabled>Zamietnul som</button>\n" +
     "                </h3>\n" +
     "            </td>\n" +
     "        </tr>\n" +
@@ -781,12 +781,12 @@ angular.module("manager/manager.invitations.tpl.html", []).run(["$templateCache"
     "            </td>\n" +
     "        <td ng-if=\"confirmation.state === 'Prijaté'\">\n" +
     "            <h3>\n" +
-    "                Prijaté klientom\n" +
+    "                <button>Prijaté klientom</button>\n" +
     "            </h3>\n" +
     "        </td>\n" +
     "        <td ng-if=\"confirmation.state === 'Zamietnuté'\">\n" +
     "            <h3>\n" +
-    "                Zamietnuté klientom\n" +
+    "                <button>Zamietnuté klientom</button>\n" +
     "            </h3>\n" +
     "        </td>\n" +
     "    </tr>\n" +
@@ -847,12 +847,12 @@ angular.module("manager/manager.receivedInvitations.tpl.html", []).run(["$templa
     "            </td>\n" +
     "            <td ng-if=\"confirmation.state === 'Prijaté'\">\n" +
     "                <h3>\n" +
-    "                    <button disabled>Prijaté</button>\n" +
+    "                    <button disabled>Prijal som</button>\n" +
     "                </h3>\n" +
     "            </td>\n" +
     "            <td ng-if=\"confirmation.state === 'Zamietnuté'\">\n" +
     "                <h3>\n" +
-    "                    <button disabled>Zamietnuté</button>\n" +
+    "                    <button disabled>Zamietnul som</button>\n" +
     "                </h3>\n" +
     "            </td>\n" +
     "        </tr>\n" +
