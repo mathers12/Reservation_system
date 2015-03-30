@@ -9,36 +9,13 @@ angular.module("about/about.tpl.html", []).run(["$templateCache", function($temp
 
 angular.module("account/account.invitations.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("account/account.invitations.tpl.html",
-    "<style>\n" +
-    "    #invitations th\n" +
-    "    {\n" +
-    "        width: 180px;\n" +
-    "        text-align: center;\n" +
-    "        border: 2px solid black;\n" +
-    "    }\n" +
-    "    #invitations td\n" +
-    "    {\n" +
-    "        width: 180px;\n" +
-    "        text-align: center;\n" +
-    "        border: 2px solid black;\n" +
-    "    }\n" +
-    "\n" +
-    "    #invitations button\n" +
-    "    {\n" +
-    "        width: 130px;\n" +
-    "    }\n" +
-    "    #buttonTop\n" +
-    "    {\n" +
-    "        margin-bottom: 5px;\n" +
-    "    }\n" +
-    "</style>\n" +
     "<div id=\"invitations\" ng-if=\"confirmations.length\">\n" +
     "<table >\n" +
     "    <tr>\n" +
-    "        <th><h3>Od koho</h3></th>\n" +
-    "        <th><h3>Aká rola</h3></th>\n" +
-    "        <th><h3>Stav</h3></th>\n" +
-    "        <th><h3>Vaše rozhodnutie</h3></th>\n" +
+    "        <td><h3>Od koho</h3></th>\n" +
+    "        <td><h3>Aká rola</h3></th>\n" +
+    "        <td><h3>Stav</h3></th>\n" +
+    "        <td><h3>Vaše rozhodnutie</h3></th>\n" +
     "    </tr>\n" +
     "    <tr ng-repeat=\"confirmation in confirmations\">\n" +
     "        <td><h3>{{confirmation.createdBy.email}}</h3></td>\n" +
@@ -70,37 +47,7 @@ angular.module("account/account.invitations.tpl.html", []).run(["$templateCache"
 
 angular.module("account/account.options.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("account/account.options.tpl.html",
-    "<style>\n" +
-    "    #options th\n" +
-    "    {\n" +
-    "        width: 190px;\n" +
-    "        text-align: center;\n" +
-    "        border: 2px solid black;\n" +
-    "    }\n" +
-    "    #options td\n" +
-    "    {\n" +
-    "        width: 190px;\n" +
-    "        text-align: center;\n" +
-    "        vertical-align: middle;\n" +
-    "\n" +
-    "        border: 2px solid black;\n" +
-    "    }\n" +
-    "\n" +
-    "    #options button\n" +
-    "    {\n" +
-    "        width: 160px;\n" +
-    "        text-align:center;\n" +
-    "        margin-top:5px;\n" +
-    "    }\n" +
-    "    input{\n" +
-    "        width: 160px;\n" +
-    "        text-align: center;\n" +
-    "        vertical-align: middle;\n" +
-    "        margin-top:5px;\n" +
-    "    }\n" +
-    "\n" +
-    "</style>\n" +
-    "<div id=\"options\" >\n" +
+    "<div id=\"invitations\" >\n" +
     "    <table ng-repeat=\"client in clients\">\n" +
     "        <tr>\n" +
     "            <td>MENO</td>\n" +
@@ -115,11 +62,11 @@ angular.module("account/account.options.tpl.html", []).run(["$templateCache", fu
     "        <tr ng-show=\"client.password !== undefined\">\n" +
     "            <td ><input ng-model=\"oldPassword\" type=\"password\" placeholder=\"Staré heslo\"></td>\n" +
     "            <td ><input ng-model=\"password\" type=\"password\" placeholder=\"Nové heslo\"></td>\n" +
-    "            <td ><input ng-model=\"password2\" type=\"password\" placeholder=\"Nové heslo ešte raz\"></td>\n" +
+    "            <td><input ng-model=\"password2\" type=\"password\" placeholder=\"Nové heslo ešte raz\"></td>\n" +
     "        </tr>\n" +
     "        <tr ng-show=\"client.password !== undefined\">\n" +
     "            <td></td>\n" +
-    "            <td><button ng-click=\"editPassword(oldPassword,password,password2)\">Potvrdiť heslo</button></td>\n" +
+    "            <td><button ng-click=\"editPassword(oldPassword,password,password2)\">Potvrdiť</button></td>\n" +
     "            <td></td>\n" +
     "        </tr>\n" +
     "    </table>\n" +
@@ -128,38 +75,9 @@ angular.module("account/account.options.tpl.html", []).run(["$templateCache", fu
 
 angular.module("account/account.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("account/account.tpl.html",
-    "<style>\n" +
-    "    button:hover,input[type=\"submit\"]:hover\n" +
-    "    {\n" +
-    "        background-color:#4682B4;\n" +
-    "\n" +
-    "    }\n" +
-    "    td\n" +
-    "    {\n" +
-    "        padding-bottom: 10px;\n" +
-    "    }\n" +
-    "    .width\n" +
-    "    {\n" +
-    "        width: 200px;\n" +
-    "    }\n" +
-    "    button\n" +
-    "    {\n" +
-    "        width: 200px;\n" +
-    "    }\n" +
-    "\n" +
-    "    #left\n" +
-    "    {\n" +
-    "        float:left;\n" +
-    "    }\n" +
-    "    #center\n" +
-    "    {\n" +
-    "        float:left;\n" +
-    "        margin-left: 200px;\n" +
-    "    }\n" +
-    "</style>\n" +
     "<h1 ng-repeat=\"client in clients\">Správa účtu používateľa <b>{{client.firstName}}</b> <b>{{client.lastName}}</b> <b>[{{client.email}}]</b></h1><br>\n" +
     "<div id=\"left\">\n" +
-    "    <table>\n" +
+    "    <table id=\"menu\">\n" +
     "        <tr>\n" +
     "            <td>\n" +
     "                <button class=\"btn btn-alert\" onclick=\"location.href='/home'\">Domovská stránka</button>\n" +
@@ -184,36 +102,13 @@ angular.module("account/account.tpl.html", []).run(["$templateCache", function($
 
 angular.module("admin/admin.invitations.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("admin/admin.invitations.tpl.html",
-    "<style>\n" +
-    "    #invitations th\n" +
-    "    {\n" +
-    "        width: 180px;\n" +
-    "        text-align: center;\n" +
-    "        border: 2px solid black;\n" +
-    "    }\n" +
-    "    #invitations td\n" +
-    "    {\n" +
-    "        width: 180px;\n" +
-    "        text-align: center;\n" +
-    "        border: 2px solid black;\n" +
-    "    }\n" +
-    "\n" +
-    "    #invitations button\n" +
-    "    {\n" +
-    "        width: 130px;\n" +
-    "    }\n" +
-    "    #buttonTop\n" +
-    "    {\n" +
-    "        margin-bottom: 5px;\n" +
-    "    }\n" +
-    "</style>\n" +
     "<div id=\"invitations\" ng-if=\"createdByConfirmations.length\">\n" +
     "<table >\n" +
     "    <tr>\n" +
-    "        <th><h3>Komu</h3></th>\n" +
-    "        <th><h3>Aká rola</h3></th>\n" +
-    "        <th><h3>Stav</h3></th>\n" +
-    "        <th><h3></h3></th>\n" +
+    "        <td><h3>Komu</h3></th>\n" +
+    "        <td><h3>Aká rola</h3></th>\n" +
+    "        <td><h3>Stav</h3></th>\n" +
+    "        <td><h3></h3></th>\n" +
     "    </tr>\n" +
     "    <tr ng-repeat=\"confirmation in createdByConfirmations\">\n" +
     "        <td><h3>{{confirmation.addressedTo.email}}</h3></td>\n" +
@@ -245,37 +140,7 @@ angular.module("admin/admin.invitations.tpl.html", []).run(["$templateCache", fu
 
 angular.module("admin/admin.options.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("admin/admin.options.tpl.html",
-    "<style>\n" +
-    "    #options th\n" +
-    "    {\n" +
-    "        width: 190px;\n" +
-    "        text-align: center;\n" +
-    "        border: 2px solid black;\n" +
-    "    }\n" +
-    "    #options td\n" +
-    "    {\n" +
-    "        width: 190px;\n" +
-    "        text-align: center;\n" +
-    "        vertical-align: middle;\n" +
-    "\n" +
-    "        border: 2px solid black;\n" +
-    "    }\n" +
-    "\n" +
-    "    #options button\n" +
-    "    {\n" +
-    "        width: 160px;\n" +
-    "        text-align:center;\n" +
-    "        margin-top:5px;\n" +
-    "    }\n" +
-    "    input{\n" +
-    "        width: 160px;\n" +
-    "        text-align: center;\n" +
-    "        vertical-align: middle;\n" +
-    "        margin-top:5px;\n" +
-    "    }\n" +
-    "\n" +
-    "</style>\n" +
-    "<div id=\"options\" >\n" +
+    "<div id=\"invitations\" >\n" +
     "    <table ng-repeat=\"client in clients\">\n" +
     "        <tr>\n" +
     "            <td>MENO</td>\n" +
@@ -290,11 +155,11 @@ angular.module("admin/admin.options.tpl.html", []).run(["$templateCache", functi
     "        <tr ng-show=\"client.password !== undefined\">\n" +
     "            <td ><input ng-model=\"oldPassword\" type=\"password\" placeholder=\"Staré heslo\"></td>\n" +
     "            <td ><input ng-model=\"password\" type=\"password\" placeholder=\"Nové heslo\"></td>\n" +
-    "            <td ><input ng-model=\"password2\" type=\"password\" placeholder=\"Nové heslo ešte raz\"></td>\n" +
+    "            <td><input ng-model=\"password2\" type=\"password\" placeholder=\"Nové heslo ešte raz\"></td>\n" +
     "        </tr>\n" +
     "        <tr ng-show=\"client.password !== undefined\">\n" +
     "            <td></td>\n" +
-    "            <td><button ng-click=\"editPassword(oldPassword,password,password2)\">Potvrdiť heslo</button></td>\n" +
+    "            <td><button ng-click=\"editPassword(oldPassword,password,password2)\">Potvrdiť</button></td>\n" +
     "            <td></td>\n" +
     "        </tr>\n" +
     "    </table>\n" +
@@ -303,37 +168,14 @@ angular.module("admin/admin.options.tpl.html", []).run(["$templateCache", functi
 
 angular.module("admin/admin.receivedInvitations.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("admin/admin.receivedInvitations.tpl.html",
-    "<style>\n" +
-    "    #invitations th\n" +
-    "    {\n" +
-    "        width: 180px;\n" +
-    "        text-align: center;\n" +
-    "        border: 2px solid black;\n" +
-    "    }\n" +
-    "    #invitations td\n" +
-    "    {\n" +
-    "        width: 180px;\n" +
-    "        text-align: center;\n" +
-    "        border: 2px solid black;\n" +
-    "    }\n" +
-    "\n" +
-    "    #invitations button\n" +
-    "    {\n" +
-    "        width: 130px;\n" +
-    "    }\n" +
-    "    #buttonTop\n" +
-    "    {\n" +
-    "        margin-bottom: 5px;\n" +
-    "    }\n" +
-    "</style>\n" +
     "<div id=\"invitations\" ng-if=\"addressedToConfirmations.length\" >\n" +
     "    <span ng-if=\"receivedInvitations\">\n" +
     "    <table >\n" +
     "        <tr>\n" +
-    "            <th><h3>Od koho</h3></th>\n" +
-    "            <th><h3>Aká rola</h3></th>\n" +
-    "            <th><h3>Stav</h3></th>\n" +
-    "            <th><h3>Vaše rozhodnutie</h3></th>\n" +
+    "            <td><h3>Od koho</h3></th>\n" +
+    "            <td><h3>Aká rola</h3></th>\n" +
+    "            <td><h3>Stav</h3></th>\n" +
+    "            <td><h3>Vaše rozhodnutie</h3></th>\n" +
     "        </tr>\n" +
     "        <tr ng-repeat=\"confirmation in addressedToConfirmations\">\n" +
     "            <td><h3>{{confirmation.createdBy.email}}</h3></td>\n" +
@@ -395,48 +237,12 @@ angular.module("admin/admin.receivedInvitations.tpl.html", []).run(["$templateCa
 
 angular.module("admin/admin.sendInvitation.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("admin/admin.sendInvitation.tpl.html",
-    "<style>\n" +
-    "    #invitations th\n" +
-    "    {\n" +
-    "        width: 190px;\n" +
-    "        text-align: center;\n" +
-    "        border: 2px solid black;\n" +
-    "    }\n" +
-    "    #invitations td\n" +
-    "    {\n" +
-    "        width: 190px;\n" +
-    "        text-align: center;\n" +
-    "        vertical-align: middle;\n" +
-    "\n" +
-    "        border: 2px solid black;\n" +
-    "    }\n" +
-    "\n" +
-    "    #invitations button\n" +
-    "    {\n" +
-    "        width: 160px;\n" +
-    "        text-align:center;\n" +
-    "        margin-top:5px;\n" +
-    "    }\n" +
-    "    #invitations select\n" +
-    "    {\n" +
-    "\n" +
-    "        width: 160px;\n" +
-    "        text-align:center;\n" +
-    "        margin-top:5px;\n" +
-    "    }\n" +
-    "    input{\n" +
-    "        width: 160px;\n" +
-    "        text-align: center;\n" +
-    "        vertical-align: middle;\n" +
-    "        margin-top:5px;\n" +
-    "    }\n" +
-    "</style>\n" +
     "<div id=\"invitations\" >\n" +
     "    <table >\n" +
     "        <tr>\n" +
-    "            <th><h3>Komu</h3></th>\n" +
-    "            <th><h3>Aká rola</h3></th>\n" +
-    "            <th><h3></h3></th>\n" +
+    "            <td><h3>Komu</h3></th>\n" +
+    "            <td><h3>Aká rola</h3></th>\n" +
+    "            <td><h3></h3></th>\n" +
     "        </tr>\n" +
     "        <tr>\n" +
     "            <td><input type=\"email\" ng-model=\"userEmail\" placeholder=\"Zadajte e-mail\" required></td>\n" +
@@ -454,38 +260,9 @@ angular.module("admin/admin.sendInvitation.tpl.html", []).run(["$templateCache",
 
 angular.module("admin/admin.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("admin/admin.tpl.html",
-    "<style>\n" +
-    "    button:hover,input[type=\"submit\"]:hover\n" +
-    "    {\n" +
-    "        background-color:#4682B4;\n" +
-    "\n" +
-    "    }\n" +
-    "    td\n" +
-    "    {\n" +
-    "        padding-bottom: 10px;\n" +
-    "    }\n" +
-    "    .width\n" +
-    "    {\n" +
-    "        width: 200px;\n" +
-    "    }\n" +
-    "    button\n" +
-    "    {\n" +
-    "        width: 200px;\n" +
-    "    }\n" +
-    "\n" +
-    "    #left\n" +
-    "    {\n" +
-    "        float:left;\n" +
-    "    }\n" +
-    "    #center\n" +
-    "    {\n" +
-    "        float:left;\n" +
-    "        margin-left: 200px;\n" +
-    "    }\n" +
-    "</style>\n" +
     "<h1 ng-repeat=\"client in clients\">Správa účtu používateľa <b>{{client.firstName}}</b> <b>{{client.lastName}}</b> <b>[{{client.email}}]</b></h1><br>\n" +
     "<div id=\"left\">\n" +
-    "<table>\n" +
+    "<table id=\"menu\">\n" +
     "    <tr>\n" +
     "        <td>\n" +
     "            <button class=\"btn btn-alert\" onclick=\"location.href='/home'\">Domovská stránka</button>\n" +
@@ -984,38 +761,13 @@ angular.module("login/login.tpl.html", []).run(["$templateCache", function($temp
 
 angular.module("manager/manager.invitations.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("manager/manager.invitations.tpl.html",
-    "<style>\n" +
-    "\n" +
-    "    #invitations th\n" +
-    "    {\n" +
-    "        width: 190px;\n" +
-    "        text-align: center;\n" +
-    "        border: 2px solid black;\n" +
-    "    }\n" +
-    "    #invitations td\n" +
-    "    {\n" +
-    "        width: 190px;\n" +
-    "        text-align: center;\n" +
-    "        vertical-align: middle;\n" +
-    "\n" +
-    "        border: 2px solid black;\n" +
-    "    }\n" +
-    "\n" +
-    "    #invitations button\n" +
-    "    {\n" +
-    "        width: 160px;\n" +
-    "        text-align:center;\n" +
-    "        margin-top:5px;\n" +
-    "    }\n" +
-    "\n" +
-    "</style>\n" +
-    "<div id=\"invitations\" ng-show=\"createdByConfirmations.length\">\n" +
+    "<div id=\"invitations\" ng-if=\"createdByConfirmations.length\">\n" +
     "<table >\n" +
     "    <tr>\n" +
-    "        <th><h3>Komu</h3></th>\n" +
-    "        <th><h3>Aká rola</h3></th>\n" +
-    "        <th><h3>Stav</h3></th>\n" +
-    "        <th><h3></h3></th>\n" +
+    "        <td><h3>Komu</h3></th>\n" +
+    "        <td><h3>Aká rola</h3></th>\n" +
+    "        <td><h3>Stav</h3></th>\n" +
+    "        <td><h3></h3></th>\n" +
     "    </tr>\n" +
     "    <tr ng-repeat=\"confirmation in createdByConfirmations\">\n" +
     "        <td><h3>{{confirmation.addressedTo.email}}</h3></td>\n" +
@@ -1039,45 +791,15 @@ angular.module("manager/manager.invitations.tpl.html", []).run(["$templateCache"
     "        </td>\n" +
     "    </tr>\n" +
     "</table>\n" +
-    "<h3 ng-show=\"!createdByConfirmations.length\">Aktuálne nemáte žiadne poslané pozvánky</h3>\n" +
     "</div>\n" +
-    "\n" +
-    "");
+    "<div ng-if=\"!createdByConfirmations.length\">\n" +
+    "    <h3>Aktuálne nemáte žiadne poslané pozvánky</h3>\n" +
+    "</div>");
 }]);
 
 angular.module("manager/manager.options.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("manager/manager.options.tpl.html",
-    "<style>\n" +
-    "    #options th\n" +
-    "    {\n" +
-    "        width: 190px;\n" +
-    "        text-align: center;\n" +
-    "        border: 2px solid black;\n" +
-    "    }\n" +
-    "    #options td\n" +
-    "    {\n" +
-    "        width: 190px;\n" +
-    "        text-align: center;\n" +
-    "        vertical-align: middle;\n" +
-    "\n" +
-    "        border: 2px solid black;\n" +
-    "    }\n" +
-    "\n" +
-    "    #options button\n" +
-    "    {\n" +
-    "        width: 160px;\n" +
-    "        text-align:center;\n" +
-    "        margin-top:5px;\n" +
-    "    }\n" +
-    "    input{\n" +
-    "        width: 160px;\n" +
-    "        text-align: center;\n" +
-    "        vertical-align: middle;\n" +
-    "        margin-top:5px;\n" +
-    "    }\n" +
-    "\n" +
-    "</style>\n" +
-    "<div id=\"options\" >\n" +
+    "<div id=\"invitations\" >\n" +
     "    <table ng-repeat=\"client in clients\">\n" +
     "        <tr>\n" +
     "            <td>MENO</td>\n" +
@@ -1092,11 +814,11 @@ angular.module("manager/manager.options.tpl.html", []).run(["$templateCache", fu
     "        <tr ng-show=\"client.password !== undefined\">\n" +
     "            <td ><input ng-model=\"oldPassword\" type=\"password\" placeholder=\"Staré heslo\"></td>\n" +
     "            <td ><input ng-model=\"password\" type=\"password\" placeholder=\"Nové heslo\"></td>\n" +
-    "            <td ><input ng-model=\"password2\" type=\"password\" placeholder=\"Nové heslo ešte raz\"></td>\n" +
+    "            <td><input ng-model=\"password2\" type=\"password\" placeholder=\"Nové heslo ešte raz\"></td>\n" +
     "        </tr>\n" +
     "        <tr ng-show=\"client.password !== undefined\">\n" +
     "            <td></td>\n" +
-    "            <td><button ng-click=\"editPassword(oldPassword,password,password2)\">Potvrdiť heslo</button></td>\n" +
+    "            <td><button ng-click=\"editPassword(oldPassword,password,password2)\">Potvrdiť</button></td>\n" +
     "            <td></td>\n" +
     "        </tr>\n" +
     "    </table>\n" +
@@ -1105,38 +827,13 @@ angular.module("manager/manager.options.tpl.html", []).run(["$templateCache", fu
 
 angular.module("manager/manager.receivedInvitations.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("manager/manager.receivedInvitations.tpl.html",
-    "<style>\n" +
-    "\n" +
-    "    #invitations th\n" +
-    "    {\n" +
-    "        width: 190px;\n" +
-    "        text-align: center;\n" +
-    "        border: 2px solid black;\n" +
-    "    }\n" +
-    "    #invitations td\n" +
-    "    {\n" +
-    "        width: 190px;\n" +
-    "        text-align: center;\n" +
-    "        vertical-align: middle;\n" +
-    "\n" +
-    "        border: 2px solid black;\n" +
-    "    }\n" +
-    "\n" +
-    "    #invitations button\n" +
-    "    {\n" +
-    "        width: 160px;\n" +
-    "        text-align:center;\n" +
-    "        margin-top:5px;\n" +
-    "    }\n" +
-    "\n" +
-    "</style>\n" +
-    "<div id=\"invitations\" ng-show=\"addressedToConfirmations.length\">\n" +
+    "<div id=\"invitations\" ng-if=\"addressedToConfirmations.length\">\n" +
     "    <table >\n" +
     "        <tr>\n" +
-    "            <th><h3>Od koho</h3></th>\n" +
-    "            <th><h3>Aká rola</h3></th>\n" +
-    "            <th><h3>Stav</h3></th>\n" +
-    "            <th><h3>Vaše rozhodnutie</h3></th>\n" +
+    "            <td><h3>Od koho</h3></th>\n" +
+    "            <td><h3>Aká rola</h3></th>\n" +
+    "            <td><h3>Stav</h3></th>\n" +
+    "            <td><h3>Vaše rozhodnutie</h3></th>\n" +
     "        </tr>\n" +
     "        <tr ng-repeat=\"confirmation in addressedToConfirmations\">\n" +
     "            <td><h3>{{confirmation.createdBy.email}}</h3></td>\n" +
@@ -1160,56 +857,20 @@ angular.module("manager/manager.receivedInvitations.tpl.html", []).run(["$templa
     "            </td>\n" +
     "        </tr>\n" +
     "    </table>\n" +
-    "<h3 ng-show=\"!addressedToConfirmations.length\">Aktuálne nemáte žiadne pozvánky</h3>\n" +
     "</div>\n" +
-    "\n" +
-    "");
+    "<div ng-if=\"!addressedToConfirmations.length\">\n" +
+    "    <h3>Aktuálne nemáte žiadne pozvánky</h3>\n" +
+    "</div>");
 }]);
 
 angular.module("manager/manager.sendInvitation.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("manager/manager.sendInvitation.tpl.html",
-    "<style>\n" +
-    "    #invitations th\n" +
-    "    {\n" +
-    "        width: 190px;\n" +
-    "        text-align: center;\n" +
-    "        border: 2px solid black;\n" +
-    "    }\n" +
-    "\n" +
-    "    #invitations td\n" +
-    "    {\n" +
-    "        width: 190px;\n" +
-    "        text-align: center;\n" +
-    "        vertical-align: middle;\n" +
-    "\n" +
-    "        border: 2px solid black;\n" +
-    "    }\n" +
-    "    #invitations select\n" +
-    "    {\n" +
-    "\n" +
-    "        width: 160px;\n" +
-    "        text-align:center;\n" +
-    "        margin-top:5px;\n" +
-    "    }\n" +
-    "    #invitations button,select\n" +
-    "    {\n" +
-    "        width: 160px;\n" +
-    "        text-align:center;\n" +
-    "        margin-top:5px;\n" +
-    "    }\n" +
-    "    input{\n" +
-    "        width: 160px;\n" +
-    "        text-align: center;\n" +
-    "        vertical-align: middle;\n" +
-    "        margin-top:5px;\n" +
-    "    }\n" +
-    "</style>\n" +
     "<div id=\"invitations\" >\n" +
     "    <table >\n" +
     "        <tr>\n" +
-    "            <th><h3>Komu</h3></th>\n" +
-    "            <th><h3>Aká rola</h3></th>\n" +
-    "            <th><h3></h3></th>\n" +
+    "            <td><h3>Komu</h3></th>\n" +
+    "            <td><h3>Aká rola</h3></th>\n" +
+    "            <td><h3></h3></th>\n" +
     "        </tr>\n" +
     "        <tr>\n" +
     "            <td><input type=\"email\" ng-model=\"userEmail\" placeholder=\"Zadajte e-mail\" required></td>\n" +
@@ -1227,38 +888,9 @@ angular.module("manager/manager.sendInvitation.tpl.html", []).run(["$templateCac
 
 angular.module("manager/manager.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("manager/manager.tpl.html",
-    "<style>\n" +
-    "    button:hover,input[type=\"submit\"]:hover\n" +
-    "    {\n" +
-    "        background-color:#4682B4;\n" +
-    "\n" +
-    "    }\n" +
-    "    td\n" +
-    "    {\n" +
-    "        padding-bottom: 10px;\n" +
-    "    }\n" +
-    "    .width\n" +
-    "    {\n" +
-    "        width: 200px;\n" +
-    "    }\n" +
-    "    button\n" +
-    "    {\n" +
-    "        width: 200px;\n" +
-    "    }\n" +
-    "\n" +
-    "    #left\n" +
-    "    {\n" +
-    "        float:left;\n" +
-    "    }\n" +
-    "    #center\n" +
-    "    {\n" +
-    "        float:left;\n" +
-    "        margin-left: 200px;\n" +
-    "    }\n" +
-    "</style>\n" +
     "<h1 ng-repeat=\"client in clients\">Správa účtu používateľa <b>{{client.firstName}}</b> <b>{{client.lastName}}</b> <b>[{{client.email}}]</b></h1><br>\n" +
     "<div id=\"left\">\n" +
-    "    <table>\n" +
+    "    <table id=\"menu\">\n" +
     "        <tr>\n" +
     "            <td>\n" +
     "                <button class=\"btn btn-alert\" onclick=\"location.href='/home'\">Domovská stránka</button>\n" +

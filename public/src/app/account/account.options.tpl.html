@@ -1,34 +1,4 @@
-<style>
-    #options th
-    {
-        width: 190px;
-        text-align: center;
-        border: 2px solid black;
-    }
-    #options td
-    {
-        width: 190px;
-        text-align: center;
-        vertical-align: middle;
-
-        border: 2px solid black;
-    }
-
-    #options button
-    {
-        width: 160px;
-        text-align:center;
-        margin-top:5px;
-    }
-    input{
-        width: 160px;
-        text-align: center;
-        vertical-align: middle;
-        margin-top:5px;
-    }
-
-</style>
-<div id="options" >
+<div id="invitations" >
     <table ng-repeat="client in clients">
         <tr>
             <td>MENO</td>
@@ -43,11 +13,11 @@
         <tr ng-show="client.password !== undefined">
             <td ><input ng-model="oldPassword" type="password" placeholder="Staré heslo"></td>
             <td ><input ng-model="password" type="password" placeholder="Nové heslo"></td>
-            <td ><input ng-model="password2" type="password" placeholder="Nové heslo ešte raz"></td>
+            <td><input ng-model="password2" type="password" placeholder="Nové heslo ešte raz"></td>
         </tr>
         <tr ng-show="client.password !== undefined">
             <td></td>
-            <td><button ng-click="editPassword(oldPassword,password,password2)">Potvrdiť heslo</button></td>
+            <td><button ng-click="editPassword(oldPassword,password,password2)">Potvrdiť</button></td>
             <td></td>
         </tr>
     </table>

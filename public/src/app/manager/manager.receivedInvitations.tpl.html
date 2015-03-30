@@ -1,33 +1,10 @@
-<style>
-    #invitations th
-    {
-        width: 180px;
-        text-align: center;
-        border: 2px solid black;
-    }
-    #invitations td
-    {
-        width: 180px;
-        text-align: center;
-        border: 2px solid black;
-    }
-
-    #invitations button
-    {
-        width: 130px;
-    }
-    #buttonTop
-    {
-        margin-bottom: 5px;
-    }
-</style>
 <div id="invitations" ng-if="addressedToConfirmations.length">
     <table >
         <tr>
-            <th><h3>Od koho</h3></th>
-            <th><h3>Aká rola</h3></th>
-            <th><h3>Stav</h3></th>
-            <th><h3>Vaše rozhodnutie</h3></th>
+            <td><h3>Od koho</h3></th>
+            <td><h3>Aká rola</h3></th>
+            <td><h3>Stav</h3></th>
+            <td><h3>Vaše rozhodnutie</h3></th>
         </tr>
         <tr ng-repeat="confirmation in addressedToConfirmations">
             <td><h3>{{confirmation.createdBy.email}}</h3></td>
@@ -41,12 +18,12 @@
             </td>
             <td ng-if="confirmation.state === 'Prijaté'">
                 <h3>
-                    <button disabled>Prijaté</button>
+                    <button disabled>Prijal som</button>
                 </h3>
             </td>
             <td ng-if="confirmation.state === 'Zamietnuté'">
                 <h3>
-                    <button disabled>Zamietnuté</button>
+                    <button disabled>Zamietnul som</button>
                 </h3>
             </td>
         </tr>
